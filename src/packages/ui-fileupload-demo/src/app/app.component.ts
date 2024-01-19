@@ -5,6 +5,7 @@ import {
   MediaInfo,
   MediaObject,
   StorageVersions,
+  TimeDurations,
   UploadStatus,
   wait
 } from '@app/lib-shared';
@@ -323,7 +324,7 @@ export class AppComponent {
 
 
     // first, start upload
-    const mediaObject: MediaObject = await fetch(`http://0.0.0.0:4000/storage/media`, {
+    let mediaObject: MediaObject = await fetch(`http://0.0.0.0:4000/storage/media`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -342,7 +343,7 @@ export class AppComponent {
     let chunks_portion_aggregate: Array<Uint8Array> = [];
     let chucks_aggregate_size: number = 0;
     let chucks_total_size: number = 0;
-    const MAX_PORTION_SIZE: number = Binary.MEGA * 15;
+    const MAX_PORTION_SIZE: number = Binary.MEGA * 5;
     const chunk_portions_count: number = Math.ceil(file.size / MAX_PORTION_SIZE);
     console.log({ chunk_portions_count, total_size: file.size, portion_size: MAX_PORTION_SIZE });
     this.chunks_index = 0;
@@ -412,7 +413,28 @@ export class AppComponent {
     
   }
 
-  onClose(mediaObject: MediaObject) {
+  async onClose(mediaObject: MediaObject) {
+    /*
+      Just because the write stream finished does not mean the media file is done process
+      check status until it return completed
+    */
+
+    while (true) {
+      console.log(`checking status`);
+      const completed: boolean = await fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`)
+        .then(r => r.json())
+        .then((response: { data: MediaObject }) => {
+          return response.data.status === UploadStatus.COMPLETED;
+        });
+      if (completed) {
+        console.log(`media completed`);
+        break;
+      }
+      console.log(`media not done; waiting...`);
+      await wait(TimeDurations.SECOND * 5);
+    }
+
+
     // next, finalize upload
     fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`, {
       method: 'PUT',
@@ -423,7 +445,7 @@ export class AppComponent {
     .then((finalized) => {
       // get file
       setTimeout(() => {
-        window.open(`http://0.0.0.0:4000/storage/media/${mediaObject.id}/serve`, '_blank');
+        window.open(`http://0.0.0.0:4000/storage/media/${mediaObject.id}/content?mode=preview`, '_blank');
       }, 1_000);
     });
 

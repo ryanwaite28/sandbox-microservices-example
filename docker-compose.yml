@@ -152,8 +152,6 @@ services:
       PORT: 4000
 
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
-      REDIS_URL: redis://default:password@redis-cache:6379
-      DATABASE_URL: postgres://postgres:postgres_password@storage-db:5432
     depends_on:
       - storage-db
       - redis-cache
@@ -169,17 +167,16 @@ services:
   gateway-api-web:
     build:
       context: .
-      dockerfile: dockerfiles/nestjs.Dockerfile
+      dockerfile: dockerfiles/nestjs.without-shared-vol.Dockerfile
       args:
         APP_NAME: gateway-api-web
-        SHARED_STORAGE_VOL_PATH: /app/shared-files
+        SHARED_STORAGE_VOL_PATH: ''
     command: npm run nx serve gateway-api-web
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: GATEWAY_API_WEB
       APP_DISPLAY_NAME: "Gateway API Web"
       COMPONENT: gateway-api-web
-      SHARED_STORAGE_VOL_PATH: /app/shared-files
       PORT: 4000
       
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
@@ -213,6 +210,7 @@ services:
       
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
       REDIS_URL: redis://default:password@redis-cache:6379
+      DATABASE_URL: postgres://postgres:postgres_password@storage-db:5432
     depends_on:
       - storage-db
       - redis-cache
@@ -227,10 +225,9 @@ services:
   microservices-logging:
     build:
       context: .
-      dockerfile: dockerfiles/microservice.Dockerfile
+      dockerfile: dockerfiles/microservice.without-shared-vol.Dockerfile
       args:
         APP_NAME: microservice-logging
-        SHARED_STORAGE_VOL_PATH: ''
     command: npm run nx serve microservice-logging
     environment:
       APP_ENV: LOCAL
@@ -249,5 +246,3 @@ services:
     volumes:
       - /app/node_modules
       - ./:/app
-      - storage-vol:/app/shared-files
-      - storage-db:/var/lib/postgresql/data

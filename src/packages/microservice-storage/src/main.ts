@@ -1,11 +1,16 @@
 import {
-  RabbitMQClient, RmqEventMessage,
+  RabbitMQClient,
+  RmqEventMessage,
 } from "rxjs-rabbitmq";
-import { MicroservicesQueues, MicroservicesStorageEvents, STORAGE_EVENTS_EXCHANGE } from "@app/lib-backend";
-import { TimeDurations } from "@app/lib-shared";
 import {
-  readdirSync
-} from 'fs';
+  MicroservicesQueues,
+  MicroservicesStorageRequests,
+  STORAGE_REQUESTS_QUEUE,
+  STORAGE_EVENTS_EXCHANGE,
+} from "@app/lib-backend";
+import { firstValueFrom } from "rxjs";
+import { onDatabaseReady } from "./app.models";
+import * as RmqMessageHandlers from "./rmq.handler";
 
 
 
@@ -18,45 +23,47 @@ const rmqClient = new RabbitMQClient({
   stopAutoInit: false,
 
   queues: [
-    { name: MicroservicesQueues.STORAGE_MS, handleMessageTypes: [], options: { durable: true } }
+    // receive storage requests
+    STORAGE_REQUESTS_QUEUE,
   ],
   exchanges: [
     // notify clients of storage events
     STORAGE_EVENTS_EXCHANGE,
   ],
-  bindings: [
-    { queue: MicroservicesQueues.STORAGE_MS, exchange: STORAGE_EVENTS_EXCHANGE.name, routingKey: '#' }
-  ],
+  bindings: [],
 
   pre_init_promises: [
-
+    firstValueFrom(onDatabaseReady())
   ]
 });
 
 
-rmqClient.onQueue(MicroservicesQueues.STORAGE_MS).handleAll(async (event: RmqEventMessage) => {
-  console.log(`-------- Received message on queue: ${MicroservicesQueues.STORAGE_MS}`, event);
+rmqClient.onQueue(MicroservicesQueues.STORAGE).handleAll(async (rmqMessage: RmqEventMessage) => {
+  console.log(`-------- Received message on queue: ${MicroservicesQueues.STORAGE}`, rmqMessage);
 
-  switch (event.message.properties.type) {
-    case MicroservicesStorageEvents.FILE_STARTED: {
-      console.log(`FILE_STARTED event`);
-      break;
+  switch (rmqMessage.message.properties.type) {
+    case MicroservicesStorageRequests.MEDIA_START: {
+      return RmqMessageHandlers.MEDIA_START(rmqMessage);
     }
 
-    case MicroservicesStorageEvents.FILE_PROGRESS: {
-      console.log(`FILE_PROGRESS event`);
-      break;
+    case MicroservicesStorageRequests.MEDIA_PROGRESS: {
+      return RmqMessageHandlers.MEDIA_PROGRESS(rmqMessage);
     }
 
-    case MicroservicesStorageEvents.FILE_COMPLETED: {
-      console.log(`FILE_COMPLETED event`);
-      const dirContents = readdirSync(process.env['SHARED_STORAGE_VOL_PATH']);
-      console.log({ dirContents });
-      break;
+    case MicroservicesStorageRequests.MEDIA_COMPLETE: {
+      return RmqMessageHandlers.MEDIA_COMPLETE(rmqMessage);
+    }
+
+
+
+    case MicroservicesStorageRequests.MEDIA_GET_ALL: {
+      return RmqMessageHandlers.MEDIA_GET_ALL(rmqMessage);
+    }
+
+    case MicroservicesStorageRequests.MEDIA_GET_BY_ID: {
+      return RmqMessageHandlers.MEDIA_GET_BY_ID(rmqMessage);
     }
   }
-
-  event.ack();
 });
 
 

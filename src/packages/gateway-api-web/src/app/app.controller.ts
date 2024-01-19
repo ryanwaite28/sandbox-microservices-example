@@ -26,10 +26,10 @@ export class AppController {
     console.log(`--- Requesting media objects all`);
 
     const response: RmqEventMessage<MediaObject> = await rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE_GATEWAY,
+      queue: MicroservicesQueues.STORAGE,
       data: {  },
       publishOptions: {
-        type: MicroservicesStorageRequests.GET_MEDIAOBJECT_ALL,
+        type: MicroservicesStorageRequests.MEDIA_GET_ALL,
         contentType: ContentTypes.JSON,
       }
     });
@@ -46,10 +46,10 @@ export class AppController {
     console.log(`--- Requesting media object by id:`, { id });
 
     const response: RmqEventMessage<MediaObject> = await rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE_GATEWAY,
+      queue: MicroservicesQueues.STORAGE,
       data: { id },
       publishOptions: {
-        type: MicroservicesStorageRequests.GET_MEDIAOBJECT_BY_ID,
+        type: MicroservicesStorageRequests.MEDIA_GET_BY_ID,
         contentType: ContentTypes.JSON,
       }
     });

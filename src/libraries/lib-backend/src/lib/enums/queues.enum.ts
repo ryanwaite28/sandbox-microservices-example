@@ -1,4 +1,8 @@
 export enum MicroservicesQueues {
-  STORAGE_MS = 'STORAGE_MS',
-  STORAGE_GATEWAY = 'STORAGE_GATEWAY',
+  STORAGE = 'STORAGE',
+  LOGGING = 'LOGGING',
+  USERS = 'USERS',
+
+  // Blog Microservice
+  BLOG = 'BLOG',
 }

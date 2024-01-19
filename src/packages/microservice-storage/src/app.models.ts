@@ -102,6 +102,8 @@ const storage_db_init = async () => {
     });
 };
 
+export const storageReady = storage_db_init();
+
 
 export function onDatabaseReady() {
   return databaseReadyStream.asObservable().pipe(filter((state: boolean) => state === true));

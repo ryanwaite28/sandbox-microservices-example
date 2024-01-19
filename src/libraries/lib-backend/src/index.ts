@@ -6,3 +6,4 @@ export * from './lib/enums/requests.enum';
 export * from './lib/enums/events.enum';
 
 export * from './lib/constants/exchanges.constants';
+export * from './lib/constants/requests.constants';

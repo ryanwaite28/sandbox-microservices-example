@@ -1,17 +1,10 @@
-import { firstValueFrom } from "rxjs";
 import {
   RabbitMQClient,
-  RmqEventMessage,
 } from "rxjs-rabbitmq";
-import { MediaObjects, onDatabaseReady } from "./app.models";
 import {
-  MicroservicesQueues,
-  MicroservicesStorageRequests,
-  STORAGE_EVENTS_EXCHANGE
+  STORAGE_REQUESTS_QUEUE,
 } from "@app/lib-backend";
 import { Provider } from "@nestjs/common";
-import { MediaObject } from "@app/lib-shared";
-
 
 
 
@@ -24,63 +17,13 @@ export const rmqClient = new RabbitMQClient({
   stopAutoInit: true,
 
   queues: [
-    { name: MicroservicesQueues.STORAGE_GATEWAY, handleMessageTypes: [], options: { durable: true } }
+    STORAGE_REQUESTS_QUEUE
   ],
-  exchanges: [
-    // notify clients of storage events
-    STORAGE_EVENTS_EXCHANGE,
-  ],
+  exchanges: [],
   bindings: [],
 
-  pre_init_promises: [
-    firstValueFrom(onDatabaseReady()),
-  ]
+  pre_init_promises: []
 });
-
-rmqClient.onQueue(MicroservicesQueues.STORAGE_GATEWAY).handleAll(async (event: RmqEventMessage) => {
-  console.log(`-------- Received message on queue: ${MicroservicesQueues.STORAGE_GATEWAY}`, event);
-
-  switch (event.message.properties.type) {
-    case MicroservicesStorageRequests.GET_MEDIAOBJECT_ALL: {
-      const mediaObjects: MediaObject[] = await MediaObjects.findAll();
-      const response = {
-        queue: event.message.properties.replyTo,
-        data: mediaObjects || null,
-        publishOptions: {
-          ...event.message.properties,
-          correlationId: event.message.properties.correlationId,
-          replyTo: event.message.properties.replyTo,
-        }
-      };
-      console.log(`----- Replying with:`, response);
-      rmqClient.sendMessage(response);
-      break;
-    }
-
-    case MicroservicesStorageRequests.GET_MEDIAOBJECT_BY_ID: {
-      const mediaObject: MediaObject = await MediaObjects.findByPk(event.data.id);
-      const response = {
-        queue: event.message.properties.replyTo,
-        data: mediaObject || null,
-        publishOptions: {
-          ...event.message.properties,
-          correlationId: event.message.properties.correlationId,
-          replyTo: event.message.properties.replyTo,
-        }
-      };
-      console.log(`----- Replying with:`, response);
-      rmqClient.sendMessage(response);
-      break;
-    }
-
-    default: {
-      console.log(`Message was not handled...`);
-    }
-  }
-
-  event.ack();
-});
-
 
 
 

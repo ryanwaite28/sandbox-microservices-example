@@ -1,0 +1,61 @@
+{
+  "name": "gateway-storage-web",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "src/packages/gateway-storage-web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/src/packages/gateway-storage-web",
+        "main": "src/packages/gateway-storage-web/src/main.ts",
+        "tsConfig": "src/packages/gateway-storage-web/tsconfig.app.json",
+        "assets": [
+          "src/packages/gateway-storage-web/src/assets"
+        ],
+        "webpackConfig": "src/packages/gateway-storage-web/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "gateway-storage-web:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "gateway-storage-web:build:development"
+        },
+        "production": {
+          "buildTarget": "gateway-storage-web:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "src/packages/gateway-storage-web/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

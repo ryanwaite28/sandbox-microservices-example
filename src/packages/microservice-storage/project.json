@@ -1,0 +1,67 @@
+{
+  "name": "microservice-storage",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "src/packages/microservice-storage/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/src/packages/microservice-storage",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "src/packages/microservice-storage/src/main.ts",
+        "tsConfig": "src/packages/microservice-storage/tsconfig.app.json",
+        "assets": ["src/packages/microservice-storage/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "microservice-storage:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "microservice-storage:build:development"
+        },
+        "production": {
+          "buildTarget": "microservice-storage:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "src/packages/microservice-storage/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

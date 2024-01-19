@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@app/lib-backend": [
+        "src/libraries/lib-backend/src/index.ts"
+      ],
+      "@app/lib-frontend": [
+        "src/libraries/lib-frontend/src/index.ts"
+      ],
+      "@app/lib-shared": [
+        "src/libraries/lib-shared/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

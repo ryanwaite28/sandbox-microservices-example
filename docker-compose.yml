@@ -1,0 +1,253 @@
+version: "3.8"
+
+
+
+networks:
+  splunknet:
+    driver: bridge
+    attachable: true
+
+
+volumes:
+
+  # https://splunk.github.io/docker-splunk/STORAGE_OPTIONS.html
+  # https://docs.docker.com/config/containers/logging/splunk/
+  splunk-config-vol:
+    driver: local
+
+  logging-ms-vol:
+    driver: local
+
+  redis-cache-vol:
+    driver: local
+
+  rabbitmq-db:
+    driver: local
+  rabbitmq-config:
+    driver: local
+
+  # Databases
+  users-db:
+    driver: local
+  blog-db:
+    driver: local
+  storage-db:
+    driver: local
+  logging-db:
+    driver: local
+
+  # Shared Storage (Mock Cloud Storage)
+  storage-vol:
+    driver: local
+
+
+
+
+services:
+
+  # Logging / Analytics
+  splunk:
+    networks:
+      splunknet:
+        aliases:
+          - so1
+    image: splunk/splunk
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=Admin123
+      - DEBUG=true
+    ports:
+      - '8000:8000'
+    volumes:
+      - logging-ms-vol:/var/log
+      - splunk-config-vol:/opt/splunk/etc
+
+
+
+  # Message Broker
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    hostname: rabbitmq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - rabbitmq-db:/var
+      - rabbitmq-config:/etc
+
+
+
+  # Cache
+  redis-cache:
+    image: redis:latest
+    hostname: redis-cache
+    environment:
+      PASSWORD: password
+    command: redis-server --requirepass password
+    ports:
+      - '6378:6379'
+    volumes:
+      - redis-cache-vol:/data
+
+
+  # Databases
+  users-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+    ports:
+      - '5433:5432'
+    volumes: 
+      - users-db:/var/lib/postgresql/data
+
+  blog-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+    ports:
+      - '5434:5432'
+    volumes: 
+      - blog-db:/var/lib/postgresql/data
+
+  storage-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+    ports:
+      - '5435:5432'
+    volumes: 
+      - storage-db:/var/lib/postgresql/data
+
+  logging-db:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - '27018:27017'
+    volumes: 
+      - logging-db:/data/db
+
+  
+  # Gateways
+
+  gateway-storage-web:
+    build:
+      context: .
+      dockerfile: dockerfiles/nestjs.Dockerfile
+      args:
+        APP_NAME: gateway-storage-web
+        SHARED_STORAGE_VOL_PATH: /app/shared-files
+    command: npm run nx serve gateway-storage-web
+    environment:
+      APP_ENV: LOCAL
+      APP_MACHINE_NAME: GATEWAY_STORAGE_WEB
+      APP_DISPLAY_NAME: "Gateway Storage Web"
+      COMPONENT: gateway-storage-web
+      SHARED_STORAGE_VOL_PATH: /app/shared-files
+      PORT: 4000
+
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      REDIS_URL: redis://default:password@redis-cache:6379
+      DATABASE_URL: postgres://postgres:postgres_password@storage-db:5432
+    depends_on:
+      - storage-db
+      - redis-cache
+      - rabbitmq
+    ports:
+      - '4000:4000'
+    volumes:
+      - /app/node_modules
+      - ./:/app
+      - storage-vol:/app/shared-files
+
+
+  gateway-api-web:
+    build:
+      context: .
+      dockerfile: dockerfiles/nestjs.Dockerfile
+      args:
+        APP_NAME: gateway-api-web
+        SHARED_STORAGE_VOL_PATH: /app/shared-files
+    command: npm run nx serve gateway-api-web
+    environment:
+      APP_ENV: LOCAL
+      APP_MACHINE_NAME: GATEWAY_API_WEB
+      APP_DISPLAY_NAME: "Gateway API Web"
+      COMPONENT: gateway-api-web
+      SHARED_STORAGE_VOL_PATH: /app/shared-files
+      PORT: 4000
+      
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - rabbitmq
+    ports:
+      - '4500:4000'
+    volumes:
+      - /app/node_modules
+      - ./:/app
+
+
+
+  # MicroServices
+
+  microservices-storage:
+    build:
+      context: .
+      dockerfile: dockerfiles/microservice.Dockerfile
+      args:
+        APP_NAME: microservice-storage
+        SHARED_STORAGE_VOL_PATH: /app/shared-files
+    command: npm run nx serve microservice-storage
+    environment:
+      APP_ENV: LOCAL
+      APP_MACHINE_NAME: MICROSERVICE_STORAGE
+      APP_DISPLAY_NAME: "MicroService - Storage"
+      COMPONENT: microservice-storage
+      SHARED_STORAGE_VOL_PATH: /app/shared-files
+      PORT: 4000
+      
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      REDIS_URL: redis://default:password@redis-cache:6379
+    depends_on:
+      - storage-db
+      - redis-cache
+      - rabbitmq
+    ports:
+      - '4400:4000'
+    volumes:
+      - /app/node_modules
+      - ./:/app
+      - storage-vol:/app/shared-files
+
+  microservices-logging:
+    build:
+      context: .
+      dockerfile: dockerfiles/microservice.Dockerfile
+      args:
+        APP_NAME: microservice-logging
+        SHARED_STORAGE_VOL_PATH: ''
+    command: npm run nx serve microservice-logging
+    environment:
+      APP_ENV: LOCAL
+      APP_MACHINE_NAME: MICROSERVICE_LOGGING
+      APP_DISPLAY_NAME: "MicroService - Logging"
+      COMPONENT: microservice-logging
+      PORT: 4000
+
+      DATABASE_URL: mongodb://root:example@mongo:27017
+    depends_on:
+      - storage-db
+      - redis-cache
+      - rabbitmq
+    ports:
+      - '4400:4000'
+    volumes:
+      - /app/node_modules
+      - ./:/app
+      - storage-vol:/app/shared-files
+      - storage-db:/var/lib/postgresql/data

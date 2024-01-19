@@ -1,0 +1,4 @@
+export enum MicroservicesStorageRequests {
+  GET_MEDIAOBJECT_BY_ID = 'GET_MEDIAOBJECT_BY_ID',
+  GET_MEDIAOBJECT_ALL = "GET_MEDIAOBJECT_ALL"
+}

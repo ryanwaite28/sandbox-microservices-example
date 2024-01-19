@@ -1,0 +1,5 @@
+export enum MicroservicesStorageEvents {
+  FILE_STARTED = 'FILE_STARTED',
+  FILE_PROGRESS = 'FILE_PROGRESS',
+  FILE_COMPLETED = 'FILE_COMPLETED',
+}

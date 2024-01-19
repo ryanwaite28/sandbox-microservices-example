@@ -1,0 +1,27 @@
+<div class="p-4">
+  <!-- <input #testFileInput class="p-3 border border-gray-400 bg-white" id="testfile" type="file" (change)="readfile()" /> -->
+  <input #testFileInput class="p-3 border border-gray-400 bg-white" id="testfile" type="file" />
+
+  <br/><br/>
+  <div class="flex flex-row gap-3">
+    <button id="upload-btn" class="py-2 px-4 rounded-md bg-blue-500 text-white" (click)="upload3()">Upload</button>
+    <button id="reset - btn" class="py-2 px-4 rounded-md bg-gray-300 text-black" (click)="reset()">Clear Input</button>
+  </div>
+
+  <!-- <p>
+    <span *ngIf="chunks_index !== null">chunks_index: {{ chunks_index }}</span>
+    <br/>
+    <span *ngIf="chunks_total !== null">chunks_total: {{ chunks_total }}</span>
+  </p> -->
+
+  <p *ngIf="loading">Loading...</p>
+
+  <br/>
+  <br/>
+
+  <div id="info-text"></div>
+
+  <br/>
+
+  <img #imageElm id="image-elem" />
+</div>

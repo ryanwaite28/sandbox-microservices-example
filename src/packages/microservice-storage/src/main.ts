@@ -6,7 +6,7 @@ import {
   MicroservicesQueues,
   MicroservicesStorageRequests,
   STORAGE_REQUESTS_QUEUE,
-  STORAGE_EVENTS_EXCHANGE,
+  STORAGE_EXCHANGE,
 } from "@app/lib-backend";
 import { firstValueFrom } from "rxjs";
 import { onDatabaseReady } from "./app.models";
@@ -28,7 +28,7 @@ const rmqClient = new RabbitMQClient({
   ],
   exchanges: [
     // notify clients of storage events
-    STORAGE_EVENTS_EXCHANGE,
+    STORAGE_EXCHANGE,
   ],
   bindings: [],
 
@@ -50,10 +50,6 @@ rmqClient.onQueue(MicroservicesQueues.STORAGE).handleAll(async (rmqMessage: RmqE
       return RmqMessageHandlers.MEDIA_PROGRESS(rmqMessage);
     }
 
-    case MicroservicesStorageRequests.MEDIA_COMPLETE: {
-      return RmqMessageHandlers.MEDIA_COMPLETE(rmqMessage);
-    }
-
 
 
     case MicroservicesStorageRequests.MEDIA_GET_ALL: {
@@ -65,6 +61,7 @@ rmqClient.onQueue(MicroservicesQueues.STORAGE).handleAll(async (rmqMessage: RmqE
     }
   }
 });
+
 
 
 // setInterval(() => {

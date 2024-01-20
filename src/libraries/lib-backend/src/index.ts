@@ -7,3 +7,5 @@ export * from './lib/enums/events.enum';
 
 export * from './lib/constants/exchanges.constants';
 export * from './lib/constants/requests.constants';
+
+export * from './lib/utils/logger.utils';

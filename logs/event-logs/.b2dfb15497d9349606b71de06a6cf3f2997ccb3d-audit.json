@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "logs/event-logs/.b2dfb15497d9349606b71de06a6cf3f2997ccb3d-audit.json",
+    "files": [
+        {
+            "date": 1705718025672,
+            "name": "logs/event-logs/logging-microservice-events-2024-01-20-02.log",
+            "hash": "64157b5383ca0b73173258ff59cc588bf20534b6ce3dd9a3ed50490d0a30a3dc"
+        }
+    ],
+    "hashType": "sha256"
+}

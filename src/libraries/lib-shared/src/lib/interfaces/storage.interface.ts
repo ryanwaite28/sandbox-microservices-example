@@ -6,8 +6,11 @@ export interface MediaInfo {
 }
 
 export interface MediaAdd {
+  id: number,
   index: number,
-  chunks: number[]
+  chunks: number[],
+  isLast: boolean,
+  chunksCount: number | null,
 }
 
 export interface MediaLocation {

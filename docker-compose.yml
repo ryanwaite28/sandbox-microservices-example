@@ -84,8 +84,10 @@ services:
     environment:
       PASSWORD: password
     command: redis-server --requirepass password
-    ports:
-      - '6378:6379'
+    deploy:
+      replicas: 1
+    # ports:
+    #   - '6378:6379'
     volumes:
       - redis-cache-vol:/data
 
@@ -143,6 +145,8 @@ services:
         APP_NAME: gateway-storage-web
         SHARED_STORAGE_VOL_PATH: /app/shared-files
     command: npm run nx serve gateway-storage-web
+    deploy:
+      replicas: 1
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: GATEWAY_STORAGE_WEB
@@ -172,6 +176,8 @@ services:
         APP_NAME: gateway-api-web
         SHARED_STORAGE_VOL_PATH: ''
     command: npm run nx serve gateway-api-web
+    deploy:
+      replicas: 1
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: GATEWAY_API_WEB
@@ -200,13 +206,14 @@ services:
         APP_NAME: microservice-storage
         SHARED_STORAGE_VOL_PATH: /app/shared-files
     command: npm run nx serve microservice-storage
+    deploy:
+      replicas: 3
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: MICROSERVICE_STORAGE
       APP_DISPLAY_NAME: "MicroService - Storage"
       COMPONENT: microservice-storage
       SHARED_STORAGE_VOL_PATH: /app/shared-files
-      PORT: 4000
       
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
       REDIS_URL: redis://default:password@redis-cache:6379
@@ -215,8 +222,6 @@ services:
       - storage-db
       - redis-cache
       - rabbitmq
-    ports:
-      - '4400:4000'
     volumes:
       - /app/node_modules
       - ./:/app
@@ -225,24 +230,25 @@ services:
   microservices-logging:
     build:
       context: .
-      dockerfile: dockerfiles/microservice.without-shared-vol.Dockerfile
+      dockerfile: dockerfiles/microservice.Dockerfile
       args:
         APP_NAME: microservice-logging
+        SHARED_STORAGE_VOL_PATH: /app/logs
+    deploy:
+      replicas: 2
     command: npm run nx serve microservice-logging
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: MICROSERVICE_LOGGING
       APP_DISPLAY_NAME: "MicroService - Logging"
       COMPONENT: microservice-logging
-      PORT: 4000
+      SHARED_STORAGE_VOL_PATH: /app/logs
 
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
       DATABASE_URL: mongodb://root:example@mongo:27017
     depends_on:
-      - storage-db
-      - redis-cache
       - rabbitmq
-    ports:
-      - '4400:4000'
     volumes:
       - /app/node_modules
+      - logging-ms-vol:/app/logs
       - ./:/app

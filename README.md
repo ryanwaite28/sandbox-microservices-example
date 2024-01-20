@@ -1,3 +1,26 @@
+# Sandbox MicroService Architecture
+
+A demo of big data streaming in a microservice architecture. Thee project demonstrates the following:
+
+* Using Docker & Docker Compose (Containers)
+* Big Data Streaming via uploading large files in chunks (read/write streams)
+* Use of various technologies and techniques
+* Using API Gateway and Storage/File Gateway via NestJS
+* Using RabbitMQ as message broker to communicate between gateways and microservices (events and Remote Procedure Call a.k.a RPC)
+* Using Redis as cache for temporarily holding files in chunks then reading when ready to aggregate/merge
+* Using PostgreSQL/Sequelize ORM for recording file uploads as media objects
+* Using Splunk for recording logs of events
+* Using Winston Logger, inside Logging Microservice, to capture logs in shared volume with Splunk
+
+
+
+
+
+
+
+
+
+
 # SandboxMicroservicesArchitecture
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>

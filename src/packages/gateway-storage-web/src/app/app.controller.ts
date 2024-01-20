@@ -9,6 +9,7 @@ import {
   ParseIntPipe,
   StreamableFile,
   Query,
+  HttpStatus,
 } from '@nestjs/common';
 import type { Response } from 'express';
 import { AppService } from './app.service';
@@ -115,33 +116,19 @@ export class AppController {
   }
 
   @Post('media/:id')
-  addUpload(@Param('id', ParseIntPipe) media_id: number, @Body() data: MediaAdd) {
+  addUpload(@Param('id', ParseIntPipe) media_id: number, @Body() data: MediaAdd, @Res({ passthrough: true }) response: Response) {
     rmqClient.sendMessage({
       queue: MicroservicesQueues.STORAGE,
-      data: { id: media_id, ...data },
+      data: { ...data, id: media_id },
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_PROGRESS,
         contentType: ContentTypes.JSON,
       }
     });
 
-    return { message: `Sent for processing` };
-  }
+    response.status(HttpStatus.OK);
 
-  @Put('media/:id')
-  doneUpload(@Param('id', ParseIntPipe) media_id: number, @Body() data: { chunks: number }) {
-    return rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE,
-      data: { id: media_id, ...data },
-      publishOptions: {
-        type: MicroservicesStorageRequests.MEDIA_COMPLETE,
-        contentType: ContentTypes.JSON,
-      }
-    })
-    .then((rmqMessage: RmqEventMessage<MediaObject>) => {
-      rmqMessage.ack();
-      return { data: rmqMessage.data };
-    });
+    return { message: `Sent for processing` };
   }
 
 }

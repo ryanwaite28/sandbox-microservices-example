@@ -263,8 +263,11 @@ export class AppComponent {
     this.chunks_index = 0;
     for (let offset = 0; offset < uintArr.length; offset += chunk_amt) {
       const data: MediaAdd = {
+        id: mediaObject.id,
         index: this.chunks_index,
-        chunks: Array.from(uintArr.slice(offset, offset + chunk_amt))
+        chunks: Array.from(uintArr.slice(offset, offset + chunk_amt)),
+        chunksCount: this.chunks_index! + 1,
+        isLast: false
       };
       const body = JSON.stringify(data);
       const promise = await fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`, {
@@ -326,7 +329,10 @@ export class AppComponent {
     // first, start upload
     let mediaObject: MediaObject = await fetch(`http://0.0.0.0:4000/storage/media`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
       body: JSON.stringify({
         ext: file.name.split('.').slice(-1)[0],
         type: file.type,
@@ -351,25 +357,33 @@ export class AppComponent {
     const start_time = Date.now();
 
     const uploadBatch = () => {
+      const remaining_size: number = file.size - chucks_total_size;
       console.log(`Uploading batch:`, {
         chucks_aggregate_size,
         chucks_total_size,
         chunks_portion_aggregate,
-        remaining_size: file.size - chucks_total_size,
+        file_size: file.size,
+        remaining_size,
         remain_portions: chunk_portions_count - (this.chunks_index! + 1),
         remaining_portions_str: `${this.chunks_index! + 1} / ${chunk_portions_count}`,
       });
       console.log({ index: this.chunks_index });
 
-      return wait(100).then(() => {
+      return wait(0).then(() => {
         const data: MediaAdd = {
+          id: mediaObject.id,
           index: this.chunks_index!,
           chunks: chunks_portion_aggregate.flatMap(c => Array.from(c)),
+          chunksCount: this.chunks_index! + 1,
+          isLast: remaining_size <= 0,
         };
         const body = JSON.stringify(data);
         return fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
           body,
         })
         .then(() => {
@@ -413,42 +427,20 @@ export class AppComponent {
     
   }
 
-  async onClose(mediaObject: MediaObject) {
-    /*
-      Just because the write stream finished does not mean the media file is done process
-      check status until it return completed
-    */
-
-    while (true) {
-      console.log(`checking status`);
-      const completed: boolean = await fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`)
-        .then(r => r.json())
-        .then((response: { data: MediaObject }) => {
-          return response.data.status === UploadStatus.COMPLETED;
-        });
-      if (completed) {
-        console.log(`media completed`);
-        break;
-      }
-      console.log(`media not done; waiting...`);
-      await wait(TimeDurations.SECOND * 5);
-    }
-
-
+  onClose(mediaObject: MediaObject) {
     // next, finalize upload
-    fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chunks: this.chunks_index! + 1 })
-    })
-    .then((r) => r.json())
-    .then((finalized) => {
-      // get file
-      setTimeout(() => {
-        window.open(`http://0.0.0.0:4000/storage/media/${mediaObject.id}/content?mode=preview`, '_blank');
-      }, 1_000);
-    });
-
+    // return fetch(`http://0.0.0.0:4000/storage/media/${mediaObject.id}`, {
+    //   method: 'PUT',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ chunks: this.chunks_index! + 1 })
+    // })
+    // .then((r) => r.json())
+    // .then((finalized) => {
+    // });
+    // get file
+    setTimeout(() => {
+      window.open(`http://0.0.0.0:4000/storage/media/${mediaObject.id}/content?mode=preview`, '_blank');
+    }, 1_000);
     this.reset();
   }
 

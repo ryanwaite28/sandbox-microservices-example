@@ -6,7 +6,7 @@ import {
 import {
   MicroservicesQueues,
   MicroservicesStorageRequests,
-  STORAGE_EVENTS_EXCHANGE
+  STORAGE_EXCHANGE
 } from "@app/lib-backend";
 import { Provider } from "@nestjs/common";
 import { MediaObject } from "@app/lib-shared";

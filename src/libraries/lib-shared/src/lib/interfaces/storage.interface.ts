@@ -22,6 +22,10 @@ export interface MediaObject {
   id: number;
   uuid: string;
   metadata: string | null;
+  created_at: string,
+  updated_at: string,
+  deleted_at: string | null,
+
   owner_id: number | null;
   extension: string;
   type: string;

@@ -39,7 +39,7 @@ export class AppController {
   @Get(`media`)
   getAllMedias() {
     return rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE,
+      queue: MicroservicesQueues.Storage.MEDIA_GET_ALL,
       data: {},
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_GET_ALL,
@@ -47,7 +47,6 @@ export class AppController {
       }
     })
     .then((rmqMessage: RmqEventMessage<MediaObject[]>) => {
-      rmqMessage.ack();
       return { data: rmqMessage.data };
     });
   }
@@ -55,7 +54,7 @@ export class AppController {
   @Get(`media/:id`)
   getMediaById(@Param('id', ParseIntPipe) media_id: number) {
     return rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE,
+      queue: MicroservicesQueues.Storage.MEDIA_GET_BY_ID,
       data: { id: media_id },
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_GET_BY_ID,
@@ -63,7 +62,6 @@ export class AppController {
       }
     })
     .then((rmqMessage: RmqEventMessage<MediaObject>) => {
-      rmqMessage.ack();
       return { data: rmqMessage.data };
     });
   }
@@ -75,7 +73,7 @@ export class AppController {
     @Res({ passthrough: true }) response: Response
   ) {
     return rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE,
+      queue: MicroservicesQueues.Storage.MEDIA_GET_BY_ID,
       data: { id: media_id },
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_GET_BY_ID,
@@ -94,7 +92,6 @@ export class AppController {
       const fileName = `${mediaObject.key}.${mediaObject.extension}`;
       const filePath = join(process.env['SHARED_STORAGE_VOL_PATH'] || __dirname, fileName);
       const file = createReadStream(filePath);
-      rmqMessage.ack();
       return new StreamableFile(file);
     });
   }
@@ -102,7 +99,7 @@ export class AppController {
   @Post('media')
   startUpload(@Body() mediaInfo: MediaInfo) {
     return rmqClient.sendRequest({
-      queue: MicroservicesQueues.STORAGE,
+      queue: MicroservicesQueues.Storage.MEDIA_START,
       data: mediaInfo,
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_START,
@@ -110,7 +107,6 @@ export class AppController {
       }
     })
     .then((rmqMessage: RmqEventMessage<MediaObject>) => {
-      rmqMessage.ack();
       return { data: rmqMessage.data };
     });
   }
@@ -118,7 +114,7 @@ export class AppController {
   @Post('media/:id')
   addUpload(@Param('id', ParseIntPipe) media_id: number, @Body() data: MediaAdd, @Res({ passthrough: true }) response: Response) {
     rmqClient.sendMessage({
-      queue: MicroservicesQueues.STORAGE,
+      queue: MicroservicesQueues.Storage.MEDIA_PROGRESS,
       data: { ...data, id: media_id },
       publishOptions: {
         type: MicroservicesStorageRequests.MEDIA_PROGRESS,

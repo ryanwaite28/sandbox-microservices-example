@@ -1,11 +1,14 @@
 import {
   RabbitMQClient,
-  RmqEventMessage,
 } from "rxjs-rabbitmq";
 import {
   MicroservicesQueues,
-  MicroservicesStorageRequests,
-  STORAGE_REQUESTS_QUEUE,
+
+  MEDIA_GET_BY_ID_QUEUE,
+  MEDIA_GET_ALL_QUEUE,
+  MEDIA_START_QUEUE,
+  MEDIA_PROGRESS_QUEUE,
+
   STORAGE_EXCHANGE,
 } from "@app/lib-backend";
 import { firstValueFrom } from "rxjs";
@@ -24,7 +27,10 @@ const rmqClient = new RabbitMQClient({
 
   queues: [
     // receive storage requests
-    STORAGE_REQUESTS_QUEUE,
+    MEDIA_GET_BY_ID_QUEUE,
+    MEDIA_GET_ALL_QUEUE,
+    MEDIA_START_QUEUE,
+    MEDIA_PROGRESS_QUEUE,
   ],
   exchanges: [
     // notify clients of storage events
@@ -38,32 +44,7 @@ const rmqClient = new RabbitMQClient({
 });
 
 
-rmqClient.onQueue(MicroservicesQueues.STORAGE).handleAll(async (rmqMessage: RmqEventMessage) => {
-  console.log(`-------- Received message on queue: ${MicroservicesQueues.STORAGE}`, rmqMessage);
-
-  switch (rmqMessage.message.properties.type) {
-    case MicroservicesStorageRequests.MEDIA_START: {
-      return RmqMessageHandlers.MEDIA_START(rmqMessage);
-    }
-
-    case MicroservicesStorageRequests.MEDIA_PROGRESS: {
-      return RmqMessageHandlers.MEDIA_PROGRESS(rmqMessage);
-    }
-
-
-
-    case MicroservicesStorageRequests.MEDIA_GET_ALL: {
-      return RmqMessageHandlers.MEDIA_GET_ALL(rmqMessage);
-    }
-
-    case MicroservicesStorageRequests.MEDIA_GET_BY_ID: {
-      return RmqMessageHandlers.MEDIA_GET_BY_ID(rmqMessage);
-    }
-  }
-});
-
-
-
-// setInterval(() => {
-//   console.log(`Keep Alive - Admit One`);
-// }, TimeDurations.HOUR);
+rmqClient.onQueue(MicroservicesQueues.Storage.MEDIA_START).handleAll(RmqMessageHandlers.MEDIA_START);
+rmqClient.onQueue(MicroservicesQueues.Storage.MEDIA_PROGRESS).handleAll(RmqMessageHandlers.MEDIA_PROGRESS);
+rmqClient.onQueue(MicroservicesQueues.Storage.MEDIA_GET_BY_ID).handleAll(RmqMessageHandlers.MEDIA_GET_BY_ID);
+rmqClient.onQueue(MicroservicesQueues.Storage.MEDIA_GET_ALL).handleAll(RmqMessageHandlers.MEDIA_GET_ALL);

@@ -63,6 +63,16 @@ async function mergeMedia(rmqMessage: RmqEventMessage<MediaAdd>, mediaObject: Me
     });
   }
 
+  rmqMessage.publishEvent({
+    exchange: MicroservicesExchanges.STORAGE,
+    routingKey: MicroservicesStorageEvents.MEDIA_AGGREGATING,
+    data: mediaObject,
+    publishOptions: {
+      type: MicroservicesStorageEvents.MEDIA_AGGREGATING,
+      contentType: ContentTypes.JSON,
+    }
+  });
+
   const chunks: number = rmqMessage.data.chunksCount || null;
 
   const fileName = `${mediaObject.key}.${mediaObject.extension}`;
@@ -159,7 +169,7 @@ export async function MEDIA_START(rmqMessage: RmqEventMessage) {
 
   const media_id: number = mediaObject.id;
   
-  const MEDIA_OBJECT_REDIS_KEY = `media-${media_id}-object`;
+  const MEDIA_OBJECT_REDIS_KEY: string = `media-${media_id}-object`;
   await redisClient.set(MEDIA_OBJECT_REDIS_KEY, JSON.stringify(mediaObject), { EX: 60 * 60 }).then(() => {
     console.log(`Set key successfully.`, { MEDIA_OBJECT_REDIS_KEY, media_id });
   });
@@ -209,20 +219,23 @@ export async function MEDIA_PROGRESS(rmqMessage: RmqEventMessage<MediaAdd>) {
   if (mediaObject.status === UploadStatus.STARTED) {
     // updating status
     await MediaObjects.update({ status: UploadStatus.PROGRESS }, { where: { id: media_id } });
+    
     const MEDIA_OBJECT_REDIS_KEY = `media-${media_id}-object`;
     mediaObject.status = UploadStatus.PROGRESS;
+    
     await redisClient.set(MEDIA_OBJECT_REDIS_KEY, JSON.stringify(mediaObject), { EX: 60 * 60 }).then(() => {
       console.log(`Set key successfully.`, { MEDIA_OBJECT_REDIS_KEY, media_id });
     });
+
     /*
       In a microservice architecture, we would, at this point, publish an event that a file was added to
     */
     rmqMessage.publishEvent({
       exchange: MicroservicesExchanges.STORAGE,
-      routingKey: MicroservicesStorageEvents.MEDIA_PROGRESS,
+      routingKey: MicroservicesStorageEvents.MEDIA_PROGRESSED,
       data: mediaObject,
       publishOptions: {
-        type: MicroservicesStorageEvents.MEDIA_PROGRESS,
+        type: MicroservicesStorageEvents.MEDIA_PROGRESSED,
         contentType: ContentTypes.JSON
       }
     });
@@ -233,7 +246,7 @@ export async function MEDIA_PROGRESS(rmqMessage: RmqEventMessage<MediaAdd>) {
         queue: rmqMessage.message.properties.replyTo,
         data: mediaObject,
         publishOptions: {
-          type: MicroservicesStorageEvents.MEDIA_PROGRESS,
+          type: MicroservicesStorageEvents.MEDIA_PROGRESSED,
           contentType: ContentTypes.JSON,
           correlationId: rmqMessage.message.properties.correlationId
         }
@@ -247,7 +260,7 @@ export async function MEDIA_PROGRESS(rmqMessage: RmqEventMessage<MediaAdd>) {
   });
 
   if (isLastChunk) {
-    console.log(`Merging media chunks...`);
+    console.log(`Is last chunk, Merging media chunks...`);
     await mergeMedia(rmqMessage, mediaObject);
     console.log(`Merged media chunks.`);
   }
@@ -256,107 +269,15 @@ export async function MEDIA_PROGRESS(rmqMessage: RmqEventMessage<MediaAdd>) {
 }
 
 
-
-/*
-export async function MEDIA_COMPLETE(rmqMessage: RmqEventMessage) {
-  const redisClient = await redisConnection;
-
-  const media_id: number = rmqMessage.data.id;
-  const chunks: number = rmqMessage.data.chunks || null;
-
-  // check if aggregation is in progress to prevent other app instances from operating on the same task
-  const MEDIA_AGG_IN_PROGRESS_KEY = `media-${media_id}-aggregating`;
-  const check_aggregating = await redisClient.get(MEDIA_AGG_IN_PROGRESS_KEY);
-  if (check_aggregating) {
-    console.log(`Aggregating being done by another instance; returning...`);
-    return;
-  }
-  else {
-    await redisClient.set(MEDIA_AGG_IN_PROGRESS_KEY, 'YES').then(() => {
-      console.log(`Currently handling aggregating in this app instance`, { media_id });
-    });
-  }
-
-  const mediaObject = await getMediaObject(media_id);
-
-  const fileName = `${mediaObject.key}.${mediaObject.extension}`;
-  const urlPath = `/storage/media/${media_id}/content`;
-  const filePath = join(process.env['SHARED_STORAGE_VOL_PATH'] || __dirname, fileName);
-
-  writeFileSync(filePath, '');
-  const fileStream = createWriteStream(filePath, {});
-
-  console.log(`Aggregating chunks via write stream`, { media_id });
-  let index = 0;
-  while (true) {
-    const MEDIA_CHUNK_REDIS_KEY: string = `media-${media_id}-chunk-${index}`;
-    const chunks_buffer: Buffer = await redisClient.get(commandOptions({ returnBuffers: true }), MEDIA_CHUNK_REDIS_KEY);
-    if (!chunks_buffer) {
-      console.log(`No more redis chunk keys, breaking...`, { media_id });
-      break;
-    }
-
-    // In a microservice architecture, we would write to an AWS bucket or some other shared location
-    fileStream.write(chunks_buffer);
-    redisClient.del(MEDIA_CHUNK_REDIS_KEY).then(() => {
-      console.log(`Deleted redis key:`, { MEDIA_CHUNK_REDIS_KEY,});
-    });
-    index = index + 1;
-  }
-
-  fileStream.end();
-  console.log(`Done aggregating buffers/chunks`, { media_id });
-  const dirContents = readdirSync(process.env['SHARED_STORAGE_VOL_PATH']);
-  console.log({ dirContents });
-
-  await MediaObjects.update({ status: UploadStatus.COMPLETED, chunks, path: urlPath }, { where: { id: media_id } });
-  const MEDIA_OBJECT_REDIS_KEY = `media-${media_id}-object`;
-  mediaObject.status = UploadStatus.COMPLETED;
-  mediaObject.path = urlPath;
-  redisClient.del(MEDIA_OBJECT_REDIS_KEY).then(() => {
-    console.log(`Deleted key successfully.`, { MEDIA_OBJECT_REDIS_KEY, media_id });
-  });
-  redisClient.del(MEDIA_AGG_IN_PROGRESS_KEY).then(() => {
-    console.log(`Deleted key successfully.`, { MEDIA_AGG_IN_PROGRESS_KEY, media_id });
-  });
-
-  // In a microservice architecture, we would, at this point, publish an event that a file was uploaded
-  rmqMessage.publishEvent({
-    exchange: MicroservicesExchanges.STORAGE,
-    routingKey: MicroservicesStorageEvents.MEDIA_COMPLETED,
-    data: mediaObject,
-    publishOptions: {
-      type: MicroservicesStorageEvents.MEDIA_COMPLETED,
-      contentType: ContentTypes.JSON,
-    }
-  });
-
-  if (!!rmqMessage.message.properties.replyTo) {
-    console.log(`Sending reply ---`);
-    rmqMessage.sendMessage({
-      queue: rmqMessage.message.properties.replyTo,
-      data: mediaObject,
-      publishOptions: {
-        type: MicroservicesStorageEvents.MEDIA_COMPLETED,
-        contentType: ContentTypes.JSON,
-        correlationId: rmqMessage.message.properties.correlationId
-      }
-    });
-  }
-
-  return rmqMessage.ack();
-}
-*/
-
 export async function MEDIA_GET_ALL(rmqMessage: RmqEventMessage) {
   const mediaObjects = await MediaObjects.findAll();
   
   rmqMessage.publishEvent({
     exchange: MicroservicesExchanges.STORAGE,
-    routingKey: MicroservicesStorageEvents.MEDIA_FETCHED_BY_ID,
+    routingKey: MicroservicesStorageEvents.MEDIA_FETCHED_ALL,
     data: mediaObjects,
     publishOptions: {
-      type: MicroservicesStorageEvents.MEDIA_COMPLETED,
+      type: MicroservicesStorageEvents.MEDIA_FETCHED_ALL,
       contentType: ContentTypes.JSON,
     }
   });
@@ -386,7 +307,7 @@ export async function MEDIA_GET_BY_ID(rmqMessage: RmqEventMessage) {
     routingKey: MicroservicesStorageEvents.MEDIA_FETCHED_BY_ID,
     data: mediaObject,
     publishOptions: {
-      type: MicroservicesStorageEvents.MEDIA_COMPLETED,
+      type: MicroservicesStorageEvents.MEDIA_FETCHED_BY_ID,
       contentType: ContentTypes.JSON,
     }
   });

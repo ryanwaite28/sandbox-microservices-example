@@ -1,0 +1,4 @@
+(^[A-Z].*) =.*
+export const $1_QUEUE = Object.freeze({ name: MicroservicesQueues.Storage.$1, options: Object.freeze({ durable: true }) });
+
+

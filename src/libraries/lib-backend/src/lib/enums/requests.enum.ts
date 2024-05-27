@@ -1,7 +1,47 @@
 export enum MicroservicesStorageRequests {
   MEDIA_GET_BY_ID = 'request.MEDIA_GET_BY_ID',
   MEDIA_GET_ALL = 'request.MEDIA_GET_ALL',
-  
   MEDIA_START = "request.MEDIA_START",
-  MEDIA_PROGRESS = "request.MEDIA_PROGRESS"
+  MEDIA_PROGRESS = "request.MEDIA_PROGRESS",
 }
+
+export enum MicroservicesUsersRequests {
+  USER_GET_BY_ID = 'request.USER_GET_BY_ID',
+  USER_GET_BY_EMAIL = 'request.USER_GET_BY_EMAIL',
+  USER_GET_BY_USERNAME = 'request.USER_GET_BY_USERNAME',
+  USERS_GET_LIKE_USERNAME = 'request.USERS_GET_LIKE_USERNAME',
+  USER_AUTHENTICATE = "request.USER_AUTHENTICATE",
+  USER_CREATE = "request.USER_CREATE",
+  USER_UPDATE = "request.USER_UPDATE",
+  USER_DELETE = "request.USER_DELETE",
+}
+
+export enum MicroservicesBlogRequests {
+  POST_GET_BY_ID = 'request.POST_GET_BY_ID',
+  POSTS_GET_BY_USERID = 'request.POSTS_GET_BY_USERID',
+  POSTS_GET_BY_TAG = 'request.POSTS_GET_BY_TAG',
+  POST_CREATE = "request.POST_CREATE",
+  POST_UPDATE = "request.POST_UPDATE",
+  POST_DELETE = "request.POST_DELETE",
+  POST_LIKE = "request.POST_LIKE",
+  POST_SAVE = "request.POST_SAVE",
+
+  COMMENT_GET_BY_ID = 'request.COMMENT_GET_BY_ID',
+  COMMENTS_GET_BY_USERID = 'request.COMMENTS_GET_BY_USERID',
+  COMMENTS_GET_BY_TAG = 'request.COMMENTS_GET_BY_TAG',
+  COMMENT_CREATE = "request.COMMENT_CREATE",
+  COMMENT_UPDATE = "request.COMMENT_UPDATE",
+  COMMENT_DELETE = "request.COMMENT_DELETE",
+  COMMENT_LIKE = "request.COMMENT_LIKE",
+  COMMENT_SAVE = "request.COMMENT_SAVE",
+
+  REPLY_GET_BY_ID = 'request.REPLY_GET_BY_ID',
+  REPLIES_GET_BY_USERID = 'request.REPLIES_GET_BY_USERID',
+  REPLIES_GET_BY_TAG = 'request.REPLIES_GET_BY_TAG',
+  REPLY_CREATE = "request.REPLY_CREATE",
+  REPLY_UPDATE = "request.REPLY_UPDATE",
+  REPLY_DELETE = "request.REPLY_DELETE",
+  REPLY_LIKE = "request.REPLY_LIKE",
+  REPLY_SAVE = "request.REPLY_SAVE",
+}
+

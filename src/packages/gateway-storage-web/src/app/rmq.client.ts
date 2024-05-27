@@ -2,7 +2,10 @@ import {
   RabbitMQClient,
 } from "rxjs-rabbitmq";
 import {
-  STORAGE_REQUESTS_QUEUE,
+  MEDIA_GET_BY_ID_QUEUE,
+  MEDIA_GET_ALL_QUEUE,
+  MEDIA_START_QUEUE,
+  MEDIA_PROGRESS_QUEUE,
 } from "@app/lib-backend";
 import { Provider } from "@nestjs/common";
 
@@ -17,7 +20,10 @@ export const rmqClient = new RabbitMQClient({
   stopAutoInit: true,
 
   queues: [
-    STORAGE_REQUESTS_QUEUE
+    MEDIA_GET_BY_ID_QUEUE,
+    MEDIA_GET_ALL_QUEUE,
+    MEDIA_START_QUEUE,
+    MEDIA_PROGRESS_QUEUE,
   ],
   exchanges: [],
   bindings: [],

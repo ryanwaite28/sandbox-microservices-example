@@ -26,8 +26,7 @@ export const rmqClient = new RabbitMQClient({
   exchanges: [],
   bindings: [],
 
-  pre_init_promises: [
-  ]
+  pre_init_promises: []
 });
 
 

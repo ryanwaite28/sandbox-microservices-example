@@ -1,3 +1,4 @@
+import { BASE64_REGEX } from "../regex/common.regex";
 
 
 export function wait(time: number = 1000) {

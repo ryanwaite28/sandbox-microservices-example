@@ -22,6 +22,7 @@ export class AppComponent {
   @ViewChild('imageElm') imageElm?: ElementRef<HTMLImageElement>;
 
   loading = false;
+  uploadSuccessful: boolean = false;
   chunks_total: number | null = null;
   chunks_index: number | null = null;
   file: File | null = null;
@@ -193,12 +194,14 @@ export class AppComponent {
         })
         .then((values) => {
           console.log({ values });
+          this.loading = false;
+          this.uploadSuccessful = true;
           // next, finalize upload
           return fetch(`http://0.0.0.0:4000/storage/media/${media_id}`, {
             method: 'PUT',
             // headers: { 'Content-Type': 'application/json' },
           })
-            .then((r) => r.json())
+          .then((r) => r.json())
         })
         .then(() => {
           // get file
@@ -321,6 +324,7 @@ export class AppComponent {
     });
 
     this.loading = true;
+    this.uploadSuccessful = false;
     
     const fileReadStream = file.stream();
 
@@ -416,6 +420,7 @@ export class AppComponent {
         const total_time = (end_time - start_time) / 1000;
         const time_in_seconds = total_time.toFixed();
         console.log({ start_time, end_time, total_time, time_in_seconds });
+        this.uploadSuccessful = true;
         this.onClose(mediaObject);
       },
       abort(err) {

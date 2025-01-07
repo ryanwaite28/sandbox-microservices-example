@@ -1,0 +1,1433 @@
+ryanwaite@Ryans-MacBook-Pro sandbox-microservices-example-main % docker compose up
+[+] Running 12/0
+ ⠿ Container sandbox-microservices-example-main-logging-db-1             Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-redis-cache-1            Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-blog-db-1                Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-storage-db-1             Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-users-db-1               Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-rabbitmq-1               Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-microservices-logging-1  Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-microservices-storage-1  Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-gateway-storage-web-1    Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-gateway-api-web-1        Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-microservices-users-1    Created                                                                                                                            0.0s
+ ⠿ Container sandbox-microservices-example-main-microservices-blog-1     Created                                                                                                                            0.0s
+Attaching to sandbox-microservices-example-main-blog-db-1, sandbox-microservices-example-main-gateway-api-web-1, sandbox-microservices-example-main-gateway-storage-web-1, sandbox-microservices-example-main-logging-db-1, sandbox-microservices-example-main-microservices-blog-1, sandbox-microservices-example-main-microservices-logging-1, sandbox-microservices-example-main-microservices-storage-1, sandbox-microservices-example-main-microservices-users-1, sandbox-microservices-example-main-rabbitmq-1, sandbox-microservices-example-main-redis-cache-1, sandbox-microservices-example-main-storage-db-1, sandbox-microservices-example-main-users-db-1
+sandbox-microservices-example-main-redis-cache-1            | 1:C 07 Jan 2025 15:26:14.958 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+sandbox-microservices-example-main-redis-cache-1            | 1:C 07 Jan 2025 15:26:14.958 * Redis version=7.2.4, bits=64, commit=00000000, modified=0, pid=1, just started
+sandbox-microservices-example-main-redis-cache-1            | 1:C 07 Jan 2025 15:26:14.958 * Configuration loaded
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.959 * monotonic clock: POSIX clock_gettime
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * Running mode=standalone, port=6379.
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * Server initialized
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * Loading RDB produced by version 7.2.4
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * RDB age 11 seconds
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * RDB memory usage when created 0.87 Mb
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * Done loading RDB, keys loaded: 0, keys expired: 0.
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * DB loaded from disk: 0.000 seconds
+sandbox-microservices-example-main-redis-cache-1            | 1:M 07 Jan 2025 15:26:14.960 * Ready to accept connections tcp
+sandbox-microservices-example-main-users-db-1               | 
+sandbox-microservices-example-main-users-db-1               | PostgreSQL Database directory appears to contain a database; Skipping initialization
+sandbox-microservices-example-main-users-db-1               | 
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.180 UTC [1] LOG:  starting PostgreSQL 15.2 (Debian 15.2-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.180 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.180 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.183 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.189 UTC [29] LOG:  database system was shut down at 2025-01-07 15:26:02 UTC
+sandbox-microservices-example-main-users-db-1               | 2025-01-07 15:26:15.196 UTC [1] LOG:  database system is ready to accept connections
+sandbox-microservices-example-main-blog-db-1                | 
+sandbox-microservices-example-main-blog-db-1                | PostgreSQL Database directory appears to contain a database; Skipping initialization
+sandbox-microservices-example-main-blog-db-1                | 
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.403 UTC [1] LOG:  starting PostgreSQL 15.2 (Debian 15.2-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.403 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.403 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.406 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.414 UTC [30] LOG:  database system was shut down at 2025-01-07 15:26:02 UTC
+sandbox-microservices-example-main-blog-db-1                | 2025-01-07 15:26:15.425 UTC [1] LOG:  database system is ready to accept connections
+sandbox-microservices-example-main-storage-db-1             | 
+sandbox-microservices-example-main-storage-db-1             | PostgreSQL Database directory appears to contain a database; Skipping initialization
+sandbox-microservices-example-main-storage-db-1             | 
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.545+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.549+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.549+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters","attr":{"relatedParameters":["tcpFastOpenServer","tcpFastOpenClient","tcpFastOpenQueueSize"]}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.550+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.552+00:00"},"s":"I",  "c":"TENANT_M", "id":7091600, "ctx":"main","msg":"Starting TenantMigrationAccessBlockerRegistry"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.552+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"6ff54ef1cd1c"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.553+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"8.0.4","gitVersion":"bc35ab4305d9920d9d0491c1c9ef9b72383d31f9","openSSLVersion":"OpenSSL 3.0.13 30 Jan 2024","modules":[],"allocator":"tcmalloc-google","environment":{"distmod":"ubuntu2404","distarch":"x86_64","target_arch":"x86_64"}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.553+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"24.04"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.553+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"},"security":{"authorization":"enabled"}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.554+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.555+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:15.555+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=9245M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],prefetch=(available=true,default=false),"}}
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.577 UTC [1] LOG:  starting PostgreSQL 15.2 (Debian 15.2-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.577 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.577 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.580 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.586 UTC [29] LOG:  database system was shut down at 2025-01-07 15:26:03 UTC
+sandbox-microservices-example-main-storage-db-1             | 2025-01-07 15:26:15.592 UTC [1] LOG:  database system is ready to accept connections
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:16.271+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263576,"ts_usec":271157,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 10 through 11"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:16.353+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263576,"ts_usec":352991,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 11 through 11"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:16.458+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263576,"ts_usec":458799,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Main recovery loop: starting at 10/10240 to 11/256"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:16.848+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263576,"ts_usec":848337,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 10 through 11"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.095+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":95865,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 11 through 11"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.173+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":173259,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 902 milliseconds"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.173+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":173465,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.173+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":173516,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.175+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":175047,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery rollback to stable has successfully finished and ran for 1 milliseconds"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.178+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":178175,"thread":"1:0x7fb481d5d680","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 6886"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.184+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":184694,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery checkpoint has successfully finished and ran for 8 milliseconds"}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.184+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263577,"ts_usec":184820,"thread":"1:0x7fb481d5d680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery was completed successfully and took 914ms, including 902ms for the log replay, 1ms for the rollback to stable, and 8ms for the checkpoint."}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.189+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":1634}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.189+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/enabled","currentValue":"never","desiredValue":"always"},"tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/defrag","currentValue":"madvise","desiredValue":"defer+madvise"},"tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"CONTROL",  "id":8640302, "ctx":"initandlisten","msg":"We suggest setting the contents of sysfsFile to 0.","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none","currentValue":511},"tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"CONTROL",  "id":8718500, "ctx":"initandlisten","msg":"Your system has glibc support for rseq built in, which is not yet supported by tcmalloc-google and has critical performance implications. Please set the environment variable GLIBC_TUNABLES=glibc.pthread.rseq=0","tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"NETWORK",  "id":5123300, "ctx":"initandlisten","msg":"vm.max_map_count is too low","attr":{"currentValue":262144,"recommendedMinimum":1677720,"maxConns":838860},"tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.245+00:00"},"s":"W",  "c":"CONTROL",  "id":8386700, "ctx":"initandlisten","msg":"We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.","attr":{"sysfsFile":"/proc/sys/vm/swappiness","currentValue":60},"tags":["startupWarnings"]}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.251+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":25,"maxWireVersion":25},"outgoing":{"minWireVersion":25,"maxWireVersion":25},"isInternalClient":true}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.252+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.0","context":"startup"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.252+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.256+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.257+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.258+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.266+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.266+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.267+00:00"},"s":"I",  "c":"STORAGE",  "id":7333401, "ctx":"initandlisten","msg":"Starting the DiskSpaceMonitor"}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.271+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.271+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0:27017"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.271+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:17.272+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Set up periodic runner":"0 ms","Set up online certificate status protocol manager":"0 ms","Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"1637 ms","Write current PID to file":"53 ms","Initialize FCV before rebuilding indexes":"7 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Load cluster parameters from disk for a standalone":"1 ms","Build user and roles graph":"0 ms","Verify indexes for admin.system.users collection":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"2 ms","Start up the replication coordinator":"1 ms","Ensure the change stream collections on startup contain consistent data":"0 ms","Write startup options to the audit log":"0 ms","Start transport layer":"1 ms","_initAndListen total elapsed time":"1719 ms"}}}}
+sandbox-microservices-example-main-microservices-storage-1  | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-microservices-storage-1  | npm info using npm@8.11.0
+sandbox-microservices-example-main-microservices-storage-1  | npm info using node@v17.9.1
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:whichnode Completed in 2ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:defaults Completed in 10ms
+sandbox-microservices-example-main-microservices-blog-1     | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:builtin Completed in 2ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:cli Completed in 5ms
+sandbox-microservices-example-main-microservices-blog-1     | npm info using npm@8.11.0
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:env Completed in 0ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:file:/app/.npmrc Completed in 6ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:project Completed in 12ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:file:/root/.npmrc Completed in 7ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:user Completed in 9ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:global Completed in 0ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:validate Completed in 0ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:credentials Completed in 2ms
+sandbox-microservices-example-main-microservices-blog-1     | npm info using node@v17.9.1
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load Completed in 46ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:configload Completed in 47ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:mkdirpcache Completed in 3ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:mkdirplogs Completed in 3ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:whichnode Completed in 2ms
+sandbox-microservices-example-main-microservices-storage-1  | npm verb title npm run nx serve microservice-storage
+sandbox-microservices-example-main-microservices-storage-1  | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "microservice-storage"
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:setTitle Completed in 2ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:defaults Completed in 6ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing config:load:flatten Completed in 7ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:display Completed in 19ms
+sandbox-microservices-example-main-microservices-storage-1  | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:builtin Completed in 3ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:cli Completed in 5ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:env Completed in 1ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:file:/app/.npmrc Completed in 6ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:project Completed in 10ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:file:/root/.npmrc Completed in 0ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:user Completed in 2ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:file:/usr/local/etc/npmrc Completed in 5ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:global Completed in 7ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:validate Completed in 0ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:credentials Completed in 3ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load Completed in 40ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:configload Completed in 41ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:mkdirpcache Completed in 4ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:mkdirplogs Completed in 2ms
+sandbox-microservices-example-main-microservices-blog-1     | npm verb title npm run nx serve microservice-blog
+sandbox-microservices-example-main-microservices-blog-1     | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "microservice-blog"
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:setTitle Completed in 3ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing config:load:flatten Completed in 8ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:display Completed in 28ms
+sandbox-microservices-example-main-microservices-blog-1     | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-microservices-storage-1  | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_464Z-debug-0.log
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:logFile Completed in 19ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:timers Completed in 1ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load:configScope Completed in 0ms
+sandbox-microservices-example-main-microservices-storage-1  | npm timing npm:load Completed in 98ms
+sandbox-microservices-example-main-microservices-blog-1     | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_469Z-debug-0.log
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:logFile Completed in 19ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:timers Completed in 1ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load:configScope Completed in 1ms
+sandbox-microservices-example-main-microservices-blog-1     | npm timing npm:load Completed in 107ms
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-microservices-storage-1  | > nx "serve" "microservice-storage"
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-microservices-blog-1     | > nx "serve" "microservice-blog"
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-gateway-storage-web-1    | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-gateway-storage-web-1    | npm info using npm@8.11.0
+sandbox-microservices-example-main-gateway-storage-web-1    | npm info using node@v17.9.1
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:whichnode Completed in 0ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:defaults Completed in 7ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 4ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:builtin Completed in 5ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:cli Completed in 8ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:env Completed in 1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:file:/app/.npmrc Completed in 7ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:project Completed in 11ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:file:/root/.npmrc Completed in 2ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:user Completed in 2ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:global Completed in 1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:validate Completed in 0ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:credentials Completed in 1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load Completed in 39ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:configload Completed in 40ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:mkdirpcache Completed in 2ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:mkdirplogs Completed in 1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm verb title npm run nx serve gateway-storage-web
+sandbox-microservices-example-main-gateway-storage-web-1    | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "gateway-storage-web"
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:setTitle Completed in 1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing config:load:flatten Completed in 4ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:display Completed in 14ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-microservices-logging-1  | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-microservices-logging-1  | npm info using npm@8.11.0
+sandbox-microservices-example-main-microservices-logging-1  | npm info using node@v17.9.1
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:whichnode Completed in 3ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:defaults Completed in 7ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:builtin Completed in 2ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:cli Completed in 6ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:env Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:file:/app/.npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:project Completed in 7ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:file:/root/.npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:user Completed in 3ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:file:/usr/local/etc/npmrc Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:global Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:validate Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:credentials Completed in 2ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load Completed in 33ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:configload Completed in 33ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:mkdirpcache Completed in 11ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:mkdirplogs Completed in 4ms
+sandbox-microservices-example-main-microservices-logging-1  | npm verb title npm run nx serve microservice-logging
+sandbox-microservices-example-main-microservices-logging-1  | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "microservice-logging"
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:setTitle Completed in 3ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing config:load:flatten Completed in 7ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:display Completed in 23ms
+sandbox-microservices-example-main-microservices-logging-1  | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-gateway-storage-web-1    | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_630Z-debug-0.log
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:logFile Completed in 11ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:timers Completed in 0ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load:configScope Completed in 0ms
+sandbox-microservices-example-main-gateway-storage-web-1    | npm timing npm:load Completed in 71ms
+sandbox-microservices-example-main-microservices-logging-1  | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_611Z-debug-0.log
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:logFile Completed in 12ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:timers Completed in 1ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load:configScope Completed in 0ms
+sandbox-microservices-example-main-microservices-logging-1  | npm timing npm:load Completed in 92ms
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-gateway-storage-web-1    | > nx "serve" "gateway-storage-web"
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-microservices-logging-1  | > nx "serve" "microservice-logging"
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-gateway-api-web-1        | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-gateway-api-web-1        | npm info using npm@8.11.0
+sandbox-microservices-example-main-gateway-api-web-1        | npm info using node@v17.9.1
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:whichnode Completed in 0ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:defaults Completed in 5ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 2ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:builtin Completed in 2ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:cli Completed in 12ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:env Completed in 1ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:file:/app/.npmrc Completed in 1ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:project Completed in 14ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:file:/root/.npmrc Completed in 1ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:user Completed in 1ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:global Completed in 1ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:validate Completed in 0ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:credentials Completed in 3ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load Completed in 43ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:configload Completed in 43ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:mkdirpcache Completed in 3ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:mkdirplogs Completed in 2ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm verb title npm run nx serve gateway-api-web
+sandbox-microservices-example-main-gateway-api-web-1        | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "gateway-api-web"
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:setTitle Completed in 3ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing config:load:flatten Completed in 9ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:display Completed in 21ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-gateway-api-web-1        | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_673Z-debug-0.log
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:logFile Completed in 10ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:timers Completed in 0ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load:configScope Completed in 0ms
+sandbox-microservices-example-main-gateway-api-web-1        | npm timing npm:load Completed in 85ms
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-gateway-api-web-1        | > nx "serve" "gateway-api-web"
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-microservices-users-1    | npm verb cli /usr/local/bin/node /usr/local/bin/npm
+sandbox-microservices-example-main-microservices-users-1    | npm info using npm@8.11.0
+sandbox-microservices-example-main-microservices-users-1    | npm info using node@v17.9.1
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:whichnode Completed in 1ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:defaults Completed in 3ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 4ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:builtin Completed in 4ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:cli Completed in 10ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:env Completed in 1ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:file:/app/.npmrc Completed in 2ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:project Completed in 12ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:file:/root/.npmrc Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:user Completed in 1ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:file:/usr/local/etc/npmrc Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:global Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:validate Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:credentials Completed in 1ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:setEnvs Completed in 2ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load Completed in 38ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:configload Completed in 38ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:mkdirpcache Completed in 11ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:mkdirplogs Completed in 11ms
+sandbox-microservices-example-main-microservices-users-1    | npm verb title npm run nx serve microservice-users
+sandbox-microservices-example-main-microservices-users-1    | npm verb argv "run" "nx" "serve" "--skip-nx-cache" "--loglevel" "verbose" "microservice-users"
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:setTitle Completed in 3ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing config:load:flatten Completed in 14ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:display Completed in 22ms
+sandbox-microservices-example-main-microservices-users-1    | npm verb logfile logs-max:10 dir:/root/.npm/_logs
+sandbox-microservices-example-main-microservices-users-1    | npm verb logfile /root/.npm/_logs/2025-01-07T15_26_17_859Z-debug-0.log
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:logFile Completed in 10ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:timers Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load:configScope Completed in 0ms
+sandbox-microservices-example-main-microservices-users-1    | npm timing npm:load Completed in 97ms
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | > @sandbox-microservices-architecture/source@0.0.0 nx
+sandbox-microservices-example-main-microservices-users-1    | > nx "serve" "microservice-users"
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:18.007+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"internalQueryCacheSize","canonicalName":"internalQueryCacheMaxEntriesPerCollection"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:18.007+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"oplogSamplingLogIntervalSeconds","canonicalName":"collectionSamplingLogIntervalSeconds"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:18.007+00:00"},"s":"W",  "c":"NETWORK",  "id":23803,   "ctx":"ftdc","msg":"Use of deprecated server parameter 'sslMode', please use 'tlsMode' instead."}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:18.008+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentReadTransactions","canonicalName":"storageEngineConcurrentReadTransactions"}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:18.008+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentWriteTransactions","canonicalName":"storageEngineConcurrentWriteTransactions"}}
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-gateway-api-web-1        |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-gateway-api-web-1        |    
+sandbox-microservices-example-main-gateway-api-web-1        |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-gateway-storage-web-1    |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-gateway-storage-web-1    |    
+sandbox-microservices-example-main-gateway-storage-web-1    |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | > nx run gateway-api-web:serve:development
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | > nx run gateway-storage-web:serve:development
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-microservices-logging-1  |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-microservices-logging-1  |    
+sandbox-microservices-example-main-microservices-logging-1  |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-microservices-blog-1     |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-microservices-blog-1     |    
+sandbox-microservices-example-main-microservices-blog-1     |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-microservices-storage-1  |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-microservices-storage-1  |    
+sandbox-microservices-example-main-microservices-storage-1  |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | > nx run microservice-logging:serve:development
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    |  >  NX   Nx Cloud manually disabled
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    |    Nx will continue running, but nothing will be written or read from the remote cache.
+sandbox-microservices-example-main-microservices-users-1    |    Run details will also not be available in the Nx Cloud UI.
+sandbox-microservices-example-main-microservices-users-1    |    
+sandbox-microservices-example-main-microservices-users-1    |    If this wasn't intentional, check for the NX_NO_CLOUD environment variable or the --no-cloud flag.
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     | > nx run microservice-blog:serve:development
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | > nx run microservice-storage:serve:development
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | > nx run microservice-users:serve:development
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:26.440061+00:00 [notice] <0.44.0> Application syslog exited with reason: stopped
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:26.453671+00:00 [notice] <0.230.0> Logging: switching to configured handler(s); following messages may not be visible in this log output
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:26.485696+00:00 [notice] <0.230.0> Logging: configured log handlers are now ACTIVE
+sandbox-microservices-example-main-microservices-blog-1     | [ watch ] build succeeded, watching for changes...
+sandbox-microservices-example-main-microservices-blog-1     | Debugger listening on ws://localhost:9229/2046542a-70d5-4bdd-95b2-35b9453e1b66
+sandbox-microservices-example-main-microservices-blog-1     | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     | Hello World
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-microservices-blog-1     | >  NX  Process exited with code 0, waiting for changes to restart...
+sandbox-microservices-example-main-microservices-blog-1     | 
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.005196+00:00 [info] <0.230.0> ra: starting system quorum_queues
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.005468+00:00 [info] <0.230.0> starting Ra system: quorum_queues in directory: /var/lib/rabbitmq/mnesia/rabbit@rabbitmq/quorum/rabbit@rabbitmq
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.010429+00:00 [info] <0.294.0> ra system 'quorum_queues' running pre init for 0 registered servers
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.014025+00:00 [info] <0.297.0> ra: meta data store initialised for system quorum_queues. 0 record(s) recovered
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.014676+00:00 [notice] <0.310.0> WAL: ra_log_wal init, open tbls: ra_log_open_mem_tables, closed tbls: ra_log_closed_mem_tables
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.026253+00:00 [info] <0.230.0> ra: starting system coordination
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.026508+00:00 [info] <0.230.0> starting Ra system: coordination in directory: /var/lib/rabbitmq/mnesia/rabbit@rabbitmq/coordination/rabbit@rabbitmq
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.031046+00:00 [info] <0.325.0> ra system 'coordination' running pre init for 0 registered servers
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.034014+00:00 [info] <0.327.0> ra: meta data store initialised for system coordination. 0 record(s) recovered
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.034475+00:00 [notice] <0.339.0> WAL: ra_coordination_log_wal init, open tbls: ra_coordination_log_open_mem_tables, closed tbls: ra_coordination_log_closed_mem_tables
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.042191+00:00 [info] <0.230.0> 
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.042191+00:00 [info] <0.230.0>  Starting RabbitMQ 3.11.11 on Erlang 25.3 [jit]
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.042191+00:00 [info] <0.230.0>  Copyright (c) 2007-2023 VMware, Inc. or its affiliates.
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.042191+00:00 [info] <0.230.0>  Licensed under the MPL 2.0. Website: https://rabbitmq.com
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   ##  ##      RabbitMQ 3.11.11
+sandbox-microservices-example-main-rabbitmq-1               |   ##  ##
+sandbox-microservices-example-main-rabbitmq-1               |   ##########  Copyright (c) 2007-2023 VMware, Inc. or its affiliates.
+sandbox-microservices-example-main-rabbitmq-1               |   ######  ##
+sandbox-microservices-example-main-rabbitmq-1               |   ##########  Licensed under the MPL 2.0. Website: https://rabbitmq.com
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   Erlang:      25.3 [jit]
+sandbox-microservices-example-main-rabbitmq-1               |   TLS Library: OpenSSL - OpenSSL 3.0.8 7 Feb 2023
+sandbox-microservices-example-main-rabbitmq-1               |   Release series support status: supported
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   Doc guides:  https://rabbitmq.com/documentation.html
+sandbox-microservices-example-main-rabbitmq-1               |   Support:     https://rabbitmq.com/contact.html
+sandbox-microservices-example-main-rabbitmq-1               |   Tutorials:   https://rabbitmq.com/getstarted.html
+sandbox-microservices-example-main-rabbitmq-1               |   Monitoring:  https://rabbitmq.com/monitoring.html
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   Logs: /var/log/rabbitmq/rabbit@rabbitmq_upgrade.log
+sandbox-microservices-example-main-rabbitmq-1               |         <stdout>
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   Config file(s): /etc/rabbitmq/conf.d/10-defaults.conf
+sandbox-microservices-example-main-rabbitmq-1               | 
+sandbox-microservices-example-main-rabbitmq-1               |   Starting broker...2025-01-07 15:26:41.047485+00:00 [info] <0.230.0> 
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  node           : rabbit@rabbitmq
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  home dir       : /var/lib/rabbitmq
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  config file(s) : /etc/rabbitmq/conf.d/10-defaults.conf
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  cookie hash    : 0kBfT6R57euAszz8YTVr5A==
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  log(s)         : /var/log/rabbitmq/rabbit@rabbitmq_upgrade.log
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>                 : <stdout>
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:41.047485+00:00 [info] <0.230.0>  database dir   : /var/lib/rabbitmq/mnesia/rabbit@rabbitmq
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.193593+00:00 [info] <0.230.0> Running boot step pre_boot defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.193885+00:00 [info] <0.230.0> Running boot step rabbit_global_counters defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.194994+00:00 [info] <0.230.0> Running boot step rabbit_osiris_metrics defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.195609+00:00 [info] <0.230.0> Running boot step rabbit_core_metrics defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.197016+00:00 [info] <0.230.0> Running boot step rabbit_alarm defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.204421+00:00 [info] <0.364.0> Memory high watermark set to 7805 MiB (8185159680 bytes) of 19514 MiB (20462899200 bytes) total
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.217886+00:00 [info] <0.366.0> Enabling free disk space monitoring (disk free space: 55457095680, total memory: 20462899200)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.218116+00:00 [info] <0.366.0> Disk free limit set to 50MB
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.223235+00:00 [info] <0.230.0> Running boot step code_server_cache defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.223985+00:00 [info] <0.230.0> Running boot step file_handle_cache defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.224527+00:00 [info] <0.369.0> Limiting to approx 1048479 file handles (943629 sockets)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.224979+00:00 [info] <0.370.0> FHC read buffering: OFF
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.225089+00:00 [info] <0.370.0> FHC write buffering: ON
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.225827+00:00 [info] <0.230.0> Running boot step worker_pool defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.226056+00:00 [info] <0.348.0> Will use 10 processes for default worker pool
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.226167+00:00 [info] <0.348.0> Starting worker pool 'worker_pool' with 10 processes in it
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.232351+00:00 [info] <0.230.0> Running boot step database defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.263778+00:00 [info] <0.230.0> Waiting for Mnesia tables for 30000 ms, 9 retries left
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.271599+00:00 [info] <0.230.0> Successfully synced tables from a peer
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310154+00:00 [info] <0.230.0> Waiting for Mnesia tables for 30000 ms, 9 retries left
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310443+00:00 [info] <0.230.0> Successfully synced tables from a peer
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310541+00:00 [info] <0.230.0> Peer discovery backend rabbit_peer_discovery_classic_config does not support registration, skipping registration.
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310708+00:00 [info] <0.230.0> Running boot step tracking_metadata_store defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310871+00:00 [info] <0.389.0> Setting up a table for connection tracking on this node: tracked_connection
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.310979+00:00 [info] <0.389.0> Setting up a table for per-vhost connection counting on this node: tracked_connection_per_vhost
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.311087+00:00 [info] <0.389.0> Setting up a table for per-user connection counting on this node: tracked_connection_per_user
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.311370+00:00 [info] <0.389.0> Setting up a table for channel tracking on this node: tracked_channel
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.311567+00:00 [info] <0.389.0> Setting up a table for channel tracking on this node: tracked_channel_per_user
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.311936+00:00 [info] <0.230.0> Running boot step networking_metadata_store defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.312328+00:00 [info] <0.230.0> Running boot step database_sync defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.312761+00:00 [info] <0.230.0> Running boot step feature_flags defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.313230+00:00 [info] <0.230.0> Running boot step codec_correctness_check defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.313321+00:00 [info] <0.230.0> Running boot step external_infrastructure defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.313450+00:00 [info] <0.230.0> Running boot step rabbit_event defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.314198+00:00 [info] <0.230.0> Running boot step rabbit_registry defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.314795+00:00 [info] <0.230.0> Running boot step rabbit_auth_mechanism_amqplain defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.315029+00:00 [info] <0.230.0> Running boot step rabbit_auth_mechanism_cr_demo defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.315288+00:00 [info] <0.230.0> Running boot step rabbit_auth_mechanism_plain defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.315436+00:00 [info] <0.230.0> Running boot step rabbit_exchange_type_direct defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.315587+00:00 [info] <0.230.0> Running boot step rabbit_exchange_type_fanout defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.316097+00:00 [info] <0.230.0> Running boot step rabbit_exchange_type_headers defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.316507+00:00 [info] <0.230.0> Running boot step rabbit_exchange_type_topic defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.316698+00:00 [info] <0.230.0> Running boot step rabbit_mirror_queue_mode_all defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.316895+00:00 [info] <0.230.0> Running boot step rabbit_mirror_queue_mode_exactly defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.317180+00:00 [info] <0.230.0> Running boot step rabbit_mirror_queue_mode_nodes defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.317375+00:00 [info] <0.230.0> Running boot step rabbit_priority_queue defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.317461+00:00 [info] <0.230.0> Priority queues enabled, real BQ is rabbit_variable_queue
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.317837+00:00 [info] <0.230.0> Running boot step rabbit_queue_location_client_local defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.318275+00:00 [info] <0.230.0> Running boot step rabbit_queue_location_min_masters defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.318435+00:00 [info] <0.230.0> Running boot step rabbit_queue_location_random defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.318566+00:00 [info] <0.230.0> Running boot step kernel_ready defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.318646+00:00 [info] <0.230.0> Running boot step rabbit_sysmon_minder defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.318879+00:00 [info] <0.230.0> Running boot step rabbit_epmd_monitor defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.323879+00:00 [info] <0.398.0> epmd monitor knows us, inter-node communication (distribution) port: 25672
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.324795+00:00 [info] <0.230.0> Running boot step guid_generator defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.337437+00:00 [info] <0.230.0> Running boot step rabbit_node_monitor defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.338071+00:00 [info] <0.402.0> Starting rabbit_node_monitor
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.338943+00:00 [info] <0.230.0> Running boot step delegate_sup defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.339890+00:00 [info] <0.230.0> Running boot step rabbit_memory_monitor defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.340958+00:00 [info] <0.230.0> Running boot step rabbit_fifo_dlx_sup defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.341602+00:00 [info] <0.230.0> Running boot step core_initialized defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.341845+00:00 [info] <0.230.0> Running boot step upgrade_queues defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.380837+00:00 [info] <0.230.0> Running boot step channel_tracking defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.381537+00:00 [info] <0.230.0> Running boot step rabbit_channel_tracking_handler defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.381726+00:00 [info] <0.230.0> Running boot step connection_tracking defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.381929+00:00 [info] <0.230.0> Running boot step rabbit_connection_tracking_handler defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.382082+00:00 [info] <0.230.0> Running boot step rabbit_definitions_hashing defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.382267+00:00 [info] <0.230.0> Running boot step rabbit_exchange_parameters defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.384033+00:00 [info] <0.230.0> Running boot step rabbit_mirror_queue_misc defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.386617+00:00 [info] <0.230.0> Running boot step rabbit_policies defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.387561+00:00 [info] <0.230.0> Running boot step rabbit_policy defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.387947+00:00 [info] <0.230.0> Running boot step rabbit_queue_location_validator defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.388081+00:00 [info] <0.230.0> Running boot step rabbit_quorum_memory_manager defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.388349+00:00 [info] <0.230.0> Running boot step rabbit_stream_coordinator defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.388973+00:00 [info] <0.230.0> Running boot step rabbit_vhost_limit defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.389262+00:00 [info] <0.230.0> Running boot step rabbit_mgmt_reset_handler defined by app rabbitmq_management
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.393064+00:00 [info] <0.230.0> Running boot step rabbit_mgmt_db_handler defined by app rabbitmq_management_agent
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.393344+00:00 [info] <0.230.0> Management plugin: using rates mode 'basic'
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.395580+00:00 [info] <0.230.0> Running boot step recovery defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.398240+00:00 [info] <0.436.0> Making sure data directory '/var/lib/rabbitmq/mnesia/rabbit@rabbitmq/msg_stores/vhosts/628WB79CIFDYO9LJI6DKMI09L' for vhost '/' exists
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.415388+00:00 [info] <0.436.0> Starting message stores for vhost '/'
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.416830+00:00 [info] <0.441.0> Message store "628WB79CIFDYO9LJI6DKMI09L/msg_store_transient": using rabbit_msg_store_ets_index to provide index
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.431486+00:00 [info] <0.436.0> Started message store of type transient for vhost '/'
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.432061+00:00 [info] <0.445.0> Message store "628WB79CIFDYO9LJI6DKMI09L/msg_store_persistent": using rabbit_msg_store_ets_index to provide index
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.450922+00:00 [info] <0.436.0> Started message store of type persistent for vhost '/'
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.485639+00:00 [info] <0.436.0> Recovering 10 queues of type rabbit_classic_queue took 79ms
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.485898+00:00 [info] <0.436.0> Recovering 0 queues of type rabbit_quorum_queue took 0ms
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.485981+00:00 [info] <0.436.0> Recovering 0 queues of type rabbit_stream_queue took 0ms
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.504603+00:00 [info] <0.230.0> Running boot step empty_db_check defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.504785+00:00 [info] <0.230.0> Will not seed default virtual host and user: have definitions to load...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.504893+00:00 [info] <0.230.0> Running boot step rabbit_observer_cli defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505127+00:00 [info] <0.230.0> Running boot step rabbit_looking_glass defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505236+00:00 [info] <0.230.0> Running boot step rabbit_core_metrics_gc defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505474+00:00 [info] <0.230.0> Running boot step background_gc defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505805+00:00 [info] <0.230.0> Running boot step routing_ready defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505884+00:00 [info] <0.230.0> Running boot step pre_flight defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.505990+00:00 [info] <0.230.0> Running boot step notify_cluster defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.506081+00:00 [info] <0.230.0> Running boot step networking defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.506180+00:00 [info] <0.230.0> Running boot step definition_import_worker_pool defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.506254+00:00 [info] <0.348.0> Starting worker pool 'definition_import_pool' with 10 processes in it
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.509429+00:00 [info] <0.230.0> Running boot step cluster_name defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.509572+00:00 [info] <0.230.0> Running boot step direct_client defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.509951+00:00 [info] <0.230.0> Running boot step rabbit_maintenance_mode_state defined by app rabbit
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.510080+00:00 [info] <0.230.0> Creating table rabbit_node_maintenance_states for maintenance mode status
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.510573+00:00 [info] <0.230.0> Running boot step rabbit_management_load_definitions defined by app rabbitmq_management
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.512813+00:00 [info] <0.533.0> Resetting node maintenance status
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.563079+00:00 [info] <0.592.0> Management plugin: HTTP (non-TLS) listener started on port 15672
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.563429+00:00 [info] <0.620.0> Statistics database started.
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.563621+00:00 [info] <0.619.0> Starting worker pool 'management_worker_pool' with 3 processes in it
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.626403+00:00 [info] <0.634.0> Prometheus metrics: HTTP (non-TLS) listener started on port 15692
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.626910+00:00 [info] <0.533.0> Ready to start client connection listeners
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:44.633274+00:00 [info] <0.678.0> started TCP listener on [::]:5672
+sandbox-microservices-example-main-rabbitmq-1               |  completed with 4 plugins.
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:45.869214+00:00 [info] <0.533.0> Server startup complete; 4 plugins started.
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:45.869214+00:00 [info] <0.533.0>  * rabbitmq_prometheus
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:45.869214+00:00 [info] <0.533.0>  * rabbitmq_management
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:45.869214+00:00 [info] <0.533.0>  * rabbitmq_web_dispatch
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:45.869214+00:00 [info] <0.533.0>  * rabbitmq_management_agent
+sandbox-microservices-example-main-gateway-api-web-1        | chunk (runtime: main) main.js (main) 1.38 MiB [entry] [rendered]
+sandbox-microservices-example-main-gateway-api-web-1        | webpack compiled successfully (a949ff33506772f0)
+sandbox-microservices-example-main-gateway-storage-web-1    | chunk (runtime: main) main.js (main) 1.37 MiB [entry] [rendered]
+sandbox-microservices-example-main-gateway-storage-web-1    | webpack compiled successfully (4acdf00a51fdb74e)
+sandbox-microservices-example-main-gateway-api-web-1        | Debugger listening on ws://localhost:9229/89f53fad-8f1c-4d5b-b230-f0aba3cc6169
+sandbox-microservices-example-main-gateway-api-web-1        | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Debugger listening on ws://localhost:9229/90b5ae9e-3c36-420b-9190-b9c4be0182b9
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:52 PM     LOG [NestFactory] Starting Nest application...
+sandbox-microservices-example-main-gateway-api-web-1        | Log file created { newFilename: 'logs/logs-2025-01-07-15.log' }
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:52 PM     LOG [NestFactory] Starting Nest application...
+sandbox-microservices-example-main-gateway-storage-web-1    | Log file created { newFilename: '/app/shared-files/logs-2025-01-07-15.log' }
+sandbox-microservices-example-main-microservices-logging-1  | [ watch ] build succeeded, watching for changes...
+sandbox-microservices-example-main-microservices-storage-1  | [ watch ] build succeeded, watching for changes...
+sandbox-microservices-example-main-microservices-logging-1  | Debugger listening on ws://localhost:9229/182a3cbb-d03b-4150-b38e-c874d1bf9fc0
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Debugger listening on ws://localhost:9229/cbf0de23-35e3-47ef-bc01-424ffaa6563f
+sandbox-microservices-example-main-microservices-storage-1  | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-gateway-api-web-1        | Running pre init promises...
+sandbox-microservices-example-main-gateway-api-web-1        | Done running pre init promises.
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:55.371529+00:00 [info] <0.681.0> accepting AMQP connection <0.681.0> (172.20.0.13:43656 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:55.381939+00:00 [info] <0.681.0> connection <0.681.0> (172.20.0.13:43656 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-gateway-api-web-1        | Connected to message server
+sandbox-microservices-example-main-gateway-api-web-1        | Channel created on message server
+sandbox-microservices-example-main-gateway-api-web-1        | queues created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | exchanges created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | bindings created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | Running post init promises...
+sandbox-microservices-example-main-gateway-api-web-1        | Done running post init promises. 
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | -------
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | Running pre init promises...
+sandbox-microservices-example-main-gateway-api-web-1        | Done running pre init promises.
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:57.223232+00:00 [info] <0.694.0> accepting AMQP connection <0.694.0> (172.20.0.13:43658 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-gateway-api-web-1        | Connected to message server
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:57.229236+00:00 [info] <0.694.0> connection <0.694.0> (172.20.0.13:43658 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-gateway-api-web-1        | Channel created on message server
+sandbox-microservices-example-main-gateway-api-web-1        | queues created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | exchanges created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | bindings created on channel
+sandbox-microservices-example-main-gateway-api-web-1        | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | Running post init promises...
+sandbox-microservices-example-main-gateway-api-web-1        | Done running post init promises. 
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | -------
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | 
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [InstanceLoader] AppModule dependencies initialized +5037ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RoutesResolver] AppController {/api}: +18ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api, GET} route +7ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RoutesResolver] UsersController {/api/users}: +0ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users/check-session, GET} route +2ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users/id/:id, GET} route +4ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users/username/:query_term, GET} route +1ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users, POST} route +1ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users, PUT} route +2ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/api/users/id/:id, PUT} route +0ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [RoutesResolver] BlogController {/api/blog}: +1ms
+sandbox-microservices-example-main-microservices-users-1    | [ watch ] build succeeded, watching for changes...
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG [NestApplication] Nest application successfully started +7ms
+sandbox-microservices-example-main-gateway-api-web-1        | [Nest] 81  - 01/07/2025, 3:26:57 PM     LOG 🚀 Application is running on: http://localhost:4000/api
+sandbox-microservices-example-main-gateway-storage-web-1    | Running pre init promises...
+sandbox-microservices-example-main-gateway-storage-web-1    | Done running pre init promises.
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:57.365259+00:00 [info] <0.707.0> accepting AMQP connection <0.707.0> (172.20.0.11:60434 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:26:57.372765+00:00 [info] <0.707.0> connection <0.707.0> (172.20.0.11:60434 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-gateway-storage-web-1    | Connected to message server
+sandbox-microservices-example-main-gateway-storage-web-1    | Channel created on message server
+sandbox-microservices-example-main-gateway-storage-web-1    | queues created on channel
+sandbox-microservices-example-main-gateway-storage-web-1    | exchanges created on channel
+sandbox-microservices-example-main-gateway-storage-web-1    | bindings created on channel
+sandbox-microservices-example-main-gateway-storage-web-1    | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Running post init promises...
+sandbox-microservices-example-main-gateway-storage-web-1    | Done running post init promises. 
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | -------
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [InstanceLoader] AppModule dependencies initialized +5056ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RoutesResolver] AppController {/storage}: +19ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/storage/media, GET} route +5ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/storage/media/:id, GET} route +1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/storage/media/:id/content, GET} route +1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/storage/media, POST} route +1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [RouterExplorer] Mapped {/storage/media/:id, POST} route +1ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG [NestApplication] Nest application successfully started +2ms
+sandbox-microservices-example-main-gateway-storage-web-1    | [Nest] 82  - 01/07/2025, 3:26:57 PM     LOG 🚀 Application is running on: http://localhost:4000/storage
+sandbox-microservices-example-main-microservices-users-1    | Debugger listening on ws://localhost:9229/0837076e-f8bd-4ebd-bd7e-e63199eaca72
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | For help, see: https://nodejs.org/en/docs/inspector
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-logging-1  | Connecting to MongoDB Atlas cluster...
+sandbox-microservices-example-main-microservices-logging-1  | Registering messages/events listener for queue: LOGGING
+sandbox-microservices-example-main-microservices-logging-1  | Log file created { newFilename: '/app/logs/logs-2025-01-07-15.log' }
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.238+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.20.0.10:45316","uuid":{"uuid":{"$uuid":"4976c12d-4540-447b-a948-4a9a7f6f9c4d"}},"connectionId":1,"connectionCount":1}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.256+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"172.20.0.10:45316","client":"conn1","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.3.0"},"platform":"Node.js v17.9.1, LE","os":{"name":"linux","architecture":"x64","version":"5.10.124-linuxkit","type":"Linux"}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.277+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.20.0.10:45318","uuid":{"uuid":{"$uuid":"86b0101d-f088-4ae2-823c-59ee0d049c31"}},"connectionId":2,"connectionCount":2}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.282+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"172.20.0.10:45318","client":"conn2","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.3.0"},"platform":"Node.js v17.9.1, LE","os":{"name":"linux","architecture":"x64","version":"5.10.124-linuxkit","type":"Linux"}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.287+00:00"},"s":"I",  "c":"ACCESS",   "id":6788604, "ctx":"conn2","msg":"Auth metrics report","attr":{"metric":"acquireUser","micros":0}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.333+00:00"},"s":"I",  "c":"ACCESS",   "id":5286306, "ctx":"conn2","msg":"Successfully authenticated","attr":{"client":"172.20.0.10:45318","isSpeculative":true,"isClusterMember":false,"mechanism":"SCRAM-SHA-256","user":"root","db":"admin","result":0,"metrics":{"conversation_duration":{"micros":45389,"summary":{"0":{"step":1,"step_total":2,"duration_micros":210},"1":{"step":2,"step_total":2,"duration_micros":37}}}},"extraInfo":{}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:26:59.340+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn2","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":7}}
+sandbox-microservices-example-main-microservices-logging-1  | ================ Successfully connected to MongoDB Atlas! ================
+sandbox-microservices-example-main-microservices-storage-1  | { sequelize_db_sync_options: { force: false, alter: false } }
+sandbox-microservices-example-main-microservices-storage-1  | Registering messages/events listener for queue: MEDIA_START
+sandbox-microservices-example-main-microservices-storage-1  | Registering messages/events listener for queue: MEDIA_PROGRESS
+sandbox-microservices-example-main-microservices-storage-1  | Registering messages/events listener for queue: MEDIA_GET_BY_ID
+sandbox-microservices-example-main-microservices-storage-1  | Registering messages/events listener for queue: MEDIA_GET_ALL
+sandbox-microservices-example-main-microservices-storage-1  | Log file created { newFilename: '/app/shared-files/logs-2025-01-07-15.log' }
+sandbox-microservices-example-main-microservices-storage-1  | (node:153) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+sandbox-microservices-example-main-microservices-storage-1  | (Use `node --trace-deprecation ...` to show where the warning was created)
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Redis connect attempt...
+sandbox-microservices-example-main-microservices-storage-1  | Redis Client Connected!
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'MediaObjects'
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'MediaObjects' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Database Initialized!
+sandbox-microservices-example-main-microservices-users-1    | { sequelize_db_sync_options: { force: false, alter: false } }
+sandbox-microservices-example-main-microservices-users-1    | Registering messages/events listener for queue: USER_GET_BY_ID
+sandbox-microservices-example-main-microservices-users-1    | Registering messages/events listener for queue: USERS_GET_LIKE_USERNAME
+sandbox-microservices-example-main-microservices-users-1    | Registering messages/events listener for queue: USER_CREATE
+sandbox-microservices-example-main-microservices-users-1    | Registering messages/events listener for queue: USER_UPDATE
+sandbox-microservices-example-main-microservices-users-1    | Registering messages/events listener for queue: USER_DELETE
+sandbox-microservices-example-main-microservices-users-1    | Log file created { newFilename: 'logs/logs-2025-01-07-15.log' }
+sandbox-microservices-example-main-microservices-users-1    | (node:152) [SEQUELIZE0002] DeprecationWarning: The logging-option should be either a function or false. Default: console.log
+sandbox-microservices-example-main-microservices-users-1    | (Use `node --trace-deprecation ...` to show where the warning was created)
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'Users'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'Users' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UserFields'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UserFields' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UserStripeIdentityVerificationSessions'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UserStripeIdentityVerificationSessions' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UsersEmailVerifications'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UsersEmailVerifications' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UsersPhoneVerifications'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UsersPhoneVerifications' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UserExpoDevices'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UserExpoDevices' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'UserDevices'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'UserDevices' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'ResetPasswordRequests'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'ResetPasswordRequests' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'ApiKeys'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'ApiKeys' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'ApiKeyRequests'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'ApiKeyRequests' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'ApiKeyWebhookEvents'
+sandbox-microservices-example-main-microservices-users-1    | Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'ApiKeyWebhookEvents' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | Database Initialized!
+sandbox-microservices-example-main-microservices-logging-1  | Running pre init promises...
+sandbox-microservices-example-main-microservices-logging-1  | Done running pre init promises.
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:04.081460+00:00 [info] <0.720.0> accepting AMQP connection <0.720.0> (172.20.0.10:52558 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:04.089819+00:00 [info] <0.720.0> connection <0.720.0> (172.20.0.10:52558 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-microservices-logging-1  | Connected to message server
+sandbox-microservices-example-main-microservices-logging-1  | Channel created on message server
+sandbox-microservices-example-main-microservices-logging-1  | queues created on channel
+sandbox-microservices-example-main-microservices-logging-1  | exchanges created on channel
+sandbox-microservices-example-main-microservices-logging-1  | bindings created on channel
+sandbox-microservices-example-main-microservices-logging-1  | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | Registered: Now listening to messages/events on queue LOGGING...
+sandbox-microservices-example-main-microservices-logging-1  | Running post init promises...
+sandbox-microservices-example-main-microservices-logging-1  | Done running post init promises. 
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | -------
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-logging-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Running pre init promises...
+sandbox-microservices-example-main-microservices-storage-1  | Done running pre init promises.
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:05.056211+00:00 [info] <0.736.0> accepting AMQP connection <0.736.0> (172.20.0.9:50094 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:05.064247+00:00 [info] <0.736.0> connection <0.736.0> (172.20.0.9:50094 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-microservices-storage-1  | Connected to message server
+sandbox-microservices-example-main-microservices-storage-1  | Channel created on message server
+sandbox-microservices-example-main-microservices-storage-1  | queues created on channel
+sandbox-microservices-example-main-microservices-storage-1  | exchanges created on channel
+sandbox-microservices-example-main-microservices-storage-1  | bindings created on channel
+sandbox-microservices-example-main-microservices-storage-1  | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | Registered: Now listening to messages/events on queue MEDIA_START...
+sandbox-microservices-example-main-microservices-storage-1  | Registered: Now listening to messages/events on queue MEDIA_PROGRESS...
+sandbox-microservices-example-main-microservices-storage-1  | Registered: Now listening to messages/events on queue MEDIA_GET_BY_ID...
+sandbox-microservices-example-main-microservices-storage-1  | Registered: Now listening to messages/events on queue MEDIA_GET_ALL...
+sandbox-microservices-example-main-microservices-storage-1  | Running post init promises...
+sandbox-microservices-example-main-microservices-storage-1  | Done running post init promises. 
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | -------
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-storage-1  | 
+sandbox-microservices-example-main-microservices-users-1    | Running pre init promises...
+sandbox-microservices-example-main-microservices-users-1    | Done running pre init promises.
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | Attempting connection to Rabbit MQ...
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:06.885932+00:00 [info] <0.749.0> accepting AMQP connection <0.749.0> (172.20.0.12:50106 -> 172.20.0.4:5672)
+sandbox-microservices-example-main-rabbitmq-1               | 2025-01-07 15:27:06.892562+00:00 [info] <0.749.0> connection <0.749.0> (172.20.0.12:50106 -> 172.20.0.4:5672): user 'guest' authenticated and granted access to vhost '/'
+sandbox-microservices-example-main-microservices-users-1    | Connected to message server
+sandbox-microservices-example-main-microservices-users-1    | Channel created on message server
+sandbox-microservices-example-main-microservices-users-1    | queues created on channel
+sandbox-microservices-example-main-microservices-users-1    | exchanges created on channel
+sandbox-microservices-example-main-microservices-users-1    | bindings created on channel
+sandbox-microservices-example-main-microservices-users-1    | Client initialization complete; waiting for messages/events...
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | Registered: Now listening to messages/events on queue USER_GET_BY_ID...
+sandbox-microservices-example-main-microservices-users-1    | Registered: Now listening to messages/events on queue USERS_GET_LIKE_USERNAME...
+sandbox-microservices-example-main-microservices-users-1    | Registered: Now listening to messages/events on queue USER_CREATE...
+sandbox-microservices-example-main-microservices-users-1    | Registered: Now listening to messages/events on queue USER_UPDATE...
+sandbox-microservices-example-main-microservices-users-1    | Registered: Now listening to messages/events on queue USER_DELETE...
+sandbox-microservices-example-main-microservices-users-1    | Running post init promises...
+sandbox-microservices-example-main-microservices-users-1    | Done running post init promises. 
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | -------
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-microservices-users-1    | 
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:27:09.781+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.20.0.10:58528","uuid":{"uuid":{"$uuid":"a8860b04-a296-4cb4-becb-6609084449c0"}},"connectionId":3,"connectionCount":3}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:27:09.782+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"172.20.0.10:58528","client":"conn3","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.3.0"},"platform":"Node.js v17.9.1, LE","os":{"name":"linux","architecture":"x64","version":"5.10.124-linuxkit","type":"Linux"}}}}
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:27:17.211+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263637,"ts_usec":211498,"thread":"1:0x7fb47351c6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 4, snapshot max: 4 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 6886"}}}
+sandbox-microservices-example-main-gateway-storage-web-1    | sendRequest: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   queue: 'MEDIA_START',
+sandbox-microservices-example-main-gateway-storage-web-1    |   data: { ext: 'mp4', type: 'video/mp4', size: 318465, chunks: null },
+sandbox-microservices-example-main-gateway-storage-web-1    |   publishOptions: { type: 'request.MEDIA_START', contentType: 'application/json' }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Created temp queue f271e6e0-cd0b-11ef-a333-ff3bb9c0823e for client.
+sandbox-microservices-example-main-gateway-storage-web-1    | now ready and watching temp queue
+sandbox-microservices-example-main-gateway-storage-web-1    | request/rpc sent; awaiting response... {
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationId: 'd6e9e503-5be3-4460-8033-933af92a9706',
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: '66k9jt3ffpf-1736263666793',
+sandbox-microservices-example-main-gateway-storage-web-1    |   temporaryRpcQueue: 'f271e6e0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | sending request
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): INSERT INTO "MediaObjects" ("id","uuid","extension","type","size","chunks","version","key","path","domain","url","status","created_at","updated_at") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "id","uuid","metadata","owner_id","extension","type","size","chunks","version","key","path","domain","url","status","created_at","updated_at","deleted_at";
+sandbox-microservices-example-main-microservices-storage-1  | Set key successfully. { MEDIA_OBJECT_REDIS_KEY: 'media-2-object', media_id: 2 }
+sandbox-microservices-example-main-microservices-storage-1  | started new media upload: 2
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Sending reply ---
+sandbox-microservices-example-main-microservices-storage-1  | is ready to send message
+sandbox-microservices-example-main-microservices-storage-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:46.881Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:46.881Z","data":{"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","id":2,"extension":"mp4","type":"video/mp4","size":"318465","chunks":null,"version":1,"key":"1736263666801","path":"","domain":"","url":"","status":"STARTED","updated_at":"2025-01-07T15:27:46.805Z","created_at":"2025-01-07T15:27:46.805Z","metadata":null,"owner_id":null,"deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":1,"redelivered":false,"exchange":"STORAGE","routingKey":"event.MEDIA_STARTED"},"properties":{"contentType":"application/json","headers":{},"type":"event.MEDIA_STARTED"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Received reply.
+sandbox-microservices-example-main-gateway-storage-web-1    |  {
+sandbox-microservices-example-main-gateway-storage-web-1    |   message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     fields: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       consumerTag: '66k9jt3ffpf-1736263666793',
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryTag: 1,
+sandbox-microservices-example-main-gateway-storage-web-1    |       redelivered: false,
+sandbox-microservices-example-main-gateway-storage-web-1    |       exchange: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       routingKey: 'f271e6e0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     properties: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentType: 'application/json',
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentEncoding: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       headers: {},
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryMode: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       priority: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       correlationId: 'd6e9e503-5be3-4460-8033-933af92a9706',
+sandbox-microservices-example-main-gateway-storage-web-1    |       replyTo: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       expiration: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       messageId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       timestamp: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'event.MEDIA_STARTED',
+sandbox-microservices-example-main-gateway-storage-web-1    |       userId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       appId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       clusterId: undefined
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     content: <Buffer 7b 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 63 62 22 2c 22 69 64 ... 285 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | {
+sandbox-microservices-example-main-gateway-storage-web-1    |   isReplyToRequest: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: '66k9jt3ffpf-1736263666793',
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationIdMatch: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   requestCorrelationId: 'd6e9e503-5be3-4460-8033-933af92a9706',
+sandbox-microservices-example-main-gateway-storage-web-1    |   responseCorrelationId: 'd6e9e503-5be3-4460-8033-933af92a9706'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | received response from request/rpc: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   start_time: 1736263666793,
+sandbox-microservices-example-main-gateway-storage-web-1    |   end_time: 1736263666968,
+sandbox-microservices-example-main-gateway-storage-web-1    |   total_time: 0.175,
+sandbox-microservices-example-main-gateway-storage-web-1    |   time_in_seconds: '0',
+sandbox-microservices-example-main-gateway-storage-web-1    |   messageObj: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-gateway-storage-web-1    |       id: 2,
+sandbox-microservices-example-main-gateway-storage-web-1    |       extension: 'mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'video/mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       size: '318465',
+sandbox-microservices-example-main-gateway-storage-web-1    |       chunks: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       version: 1,
+sandbox-microservices-example-main-gateway-storage-web-1    |       key: '1736263666801',
+sandbox-microservices-example-main-gateway-storage-web-1    |       path: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       domain: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       url: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       status: 'STARTED',
+sandbox-microservices-example-main-gateway-storage-web-1    |       updated_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       metadata: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       owner_id: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       deleted_at: null
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       fields: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       properties: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       content: <Buffer 7b 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 63 62 22 2c 22 69 64 ... 285 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     ack: [Function: ack],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendMessage: [Function: bound sendMessage],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendRequest: [Function: bound sendRequest],
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishEvent: [Function: bound publishEvent]
+sandbox-microservices-example-main-gateway-storage-web-1    |   },
+sandbox-microservices-example-main-gateway-storage-web-1    |   options: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     queue: 'MEDIA_START',
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: { ext: 'mp4', type: 'video/mp4', size: 318465, chunks: null },
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishOptions: { type: 'request.MEDIA_START', contentType: 'application/json' }
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:46.881Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: null,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'STARTED',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 1,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'event.MEDIA_STARTED'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'event.MEDIA_STARTED',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f2b003e82df6daa41e')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-gateway-storage-web-1    | is ready to send message
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): UPDATE "MediaObjects" SET "status"=$1,"updated_at"=$2 WHERE ("deleted_at" IS NULL AND "id" = $3)
+sandbox-microservices-example-main-microservices-storage-1  | Set key successfully. { MEDIA_OBJECT_REDIS_KEY: 'media-2-object', media_id: 2 }
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Set key successfully. { MEDIA_CHUNK_REDIS_KEY: 'media-2-chunk-0', media_id: 2, index: 0 }
+sandbox-microservices-example-main-microservices-storage-1  | Is last chunk, Merging media chunks...
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:47.436Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:47.436Z","data":{"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","id":2,"extension":"mp4","type":"video/mp4","size":"318465","chunks":null,"version":1,"key":"1736263666801","path":"","domain":"","url":"","status":"PROGRESS","updated_at":"2025-01-07T15:27:46.805Z","created_at":"2025-01-07T15:27:46.805Z","metadata":null,"owner_id":null,"deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":2,"redelivered":false,"exchange":"STORAGE","routingKey":"event.MEDIA_PROGRESSED"},"properties":{"contentType":"application/json","headers":{},"type":"event.MEDIA_PROGRESSED"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-storage-1  | Currently handling aggregating in this app instance { media_id: 2 }
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Aggregating chunks via write stream { media_id: 2 }
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:47.436Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: null,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'PROGRESS',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 2,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'event.MEDIA_PROGRESSED'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'event.MEDIA_PROGRESSED',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f3b003e82df6daa41f')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:47.446Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:47.446Z","data":{"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","id":2,"extension":"mp4","type":"video/mp4","size":"318465","chunks":null,"version":1,"key":"1736263666801","path":"","domain":"","url":"","status":"PROGRESS","updated_at":"2025-01-07T15:27:46.805Z","created_at":"2025-01-07T15:27:46.805Z","metadata":null,"owner_id":null,"deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":3,"redelivered":false,"exchange":"STORAGE","routingKey":"MEDIA_AGGREGATING"},"properties":{"contentType":"application/json","headers":{},"type":"MEDIA_AGGREGATING"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-storage-1  | Deleted redis key: { MEDIA_CHUNK_REDIS_KEY: 'media-2-chunk-0' }
+sandbox-microservices-example-main-microservices-storage-1  | No more redis chunk keys, breaking... { media_id: 2 }
+sandbox-microservices-example-main-microservices-storage-1  | Done aggregating buffers/chunks { media_id: 2 }
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:47.446Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: null,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'PROGRESS',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 3,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'MEDIA_AGGREGATING'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'MEDIA_AGGREGATING',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f3b003e82df6daa420')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-microservices-storage-1  | {
+sandbox-microservices-example-main-microservices-storage-1  |   dirContents: [
+sandbox-microservices-example-main-microservices-storage-1  |     '.719530adb9923aa6403103dd9a3c26e986c6b03b-audit.json',
+sandbox-microservices-example-main-microservices-storage-1  |     '1736262906954.png',
+sandbox-microservices-example-main-microservices-storage-1  |     '1736263666801.mp4',
+sandbox-microservices-example-main-microservices-storage-1  |     'combined.log',
+sandbox-microservices-example-main-microservices-storage-1  |     'logs-2025-01-05-23.log',
+sandbox-microservices-example-main-microservices-storage-1  |     'logs-2025-01-07-14.log',
+sandbox-microservices-example-main-microservices-storage-1  |     'logs-2025-01-07-15.log'
+sandbox-microservices-example-main-microservices-storage-1  |   ]
+sandbox-microservices-example-main-microservices-storage-1  | }
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): UPDATE "MediaObjects" SET "status"=$1,"chunks"=$2,"path"=$3,"updated_at"=$4 WHERE ("deleted_at" IS NULL AND "id" = $5)
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Merged media chunks.
+sandbox-microservices-example-main-microservices-storage-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-storage-1  | Deleted key successfully. { MEDIA_OBJECT_REDIS_KEY: 'media-2-object', media_id: 2 }
+sandbox-microservices-example-main-microservices-storage-1  | Deleted key successfully. { MEDIA_AGG_IN_PROGRESS_KEY: 'media-2-aggregating', media_id: 2 }
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:47.464Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:47.464Z","data":{"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","id":2,"extension":"mp4","type":"video/mp4","size":"318465","chunks":null,"version":1,"key":"1736263666801","path":"/storage/media/2/content","domain":"","url":"","status":"COMPLETED","updated_at":"2025-01-07T15:27:46.805Z","created_at":"2025-01-07T15:27:46.805Z","metadata":null,"owner_id":null,"deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":4,"redelivered":false,"exchange":"STORAGE","routingKey":"MEDIA_COMPLETED"},"properties":{"contentType":"application/json","headers":{},"type":"MEDIA_COMPLETED"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:47.464Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: null,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '/storage/media/2/content',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'COMPLETED',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 4,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'MEDIA_COMPLETED'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'MEDIA_COMPLETED',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f3b003e82df6daa421')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-gateway-storage-web-1    | sendRequest: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   queue: 'MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |   data: { id: 2 },
+sandbox-microservices-example-main-gateway-storage-web-1    |   publishOptions: { type: 'request.MEDIA_GET_BY_ID', contentType: 'application/json' }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Created temp queue f35bd1b0-cd0b-11ef-a333-ff3bb9c0823e for client.
+sandbox-microservices-example-main-gateway-storage-web-1    | now ready and watching temp queue
+sandbox-microservices-example-main-gateway-storage-web-1    | request/rpc sent; awaiting response... {
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationId: '31e2809d-b898-49df-b3ea-a81abfef01af',
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: '6kfgpiow7wn-1736263668313',
+sandbox-microservices-example-main-gateway-storage-web-1    |   temporaryRpcQueue: 'f35bd1b0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | sending request
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): SELECT "id", "uuid", "metadata", "owner_id", "extension", "type", "size", "chunks", "version", "key", "path", "domain", "url", "status", "created_at", "updated_at", "deleted_at" FROM "MediaObjects" AS "MediaObjects" WHERE ("MediaObjects"."deleted_at" IS NULL AND "MediaObjects"."id" = 2);
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Sending reply ---
+sandbox-microservices-example-main-microservices-storage-1  | is ready to send message
+sandbox-microservices-example-main-microservices-storage-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Received reply.
+sandbox-microservices-example-main-gateway-storage-web-1    |  {
+sandbox-microservices-example-main-gateway-storage-web-1    |   message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     fields: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       consumerTag: '6kfgpiow7wn-1736263668313',
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryTag: 2,
+sandbox-microservices-example-main-gateway-storage-web-1    |       redelivered: false,
+sandbox-microservices-example-main-gateway-storage-web-1    |       exchange: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       routingKey: 'f35bd1b0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     properties: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentType: 'application/json',
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentEncoding: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       headers: {},
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryMode: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       priority: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       correlationId: '31e2809d-b898-49df-b3ea-a81abfef01af',
+sandbox-microservices-example-main-gateway-storage-web-1    |       replyTo: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       expiration: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       messageId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       timestamp: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'event.MEDIA_FETCHED_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |       userId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       appId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       clusterId: undefined
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     content: <Buffer 7b 22 69 64 22 3a 32 2c 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 ... 308 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | {
+sandbox-microservices-example-main-gateway-storage-web-1    |   isReplyToRequest: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: '6kfgpiow7wn-1736263668313',
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationIdMatch: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   requestCorrelationId: '31e2809d-b898-49df-b3ea-a81abfef01af',
+sandbox-microservices-example-main-gateway-storage-web-1    |   responseCorrelationId: '31e2809d-b898-49df-b3ea-a81abfef01af'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | received response from request/rpc: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   start_time: 1736263668313,
+sandbox-microservices-example-main-gateway-storage-web-1    |   end_time: 1736263668333,
+sandbox-microservices-example-main-gateway-storage-web-1    |   total_time: 0.02,
+sandbox-microservices-example-main-gateway-storage-web-1    |   time_in_seconds: '0',
+sandbox-microservices-example-main-gateway-storage-web-1    |   messageObj: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       id: 2,
+sandbox-microservices-example-main-gateway-storage-web-1    |       uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-gateway-storage-web-1    |       metadata: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       owner_id: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       extension: 'mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'video/mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       size: '318465',
+sandbox-microservices-example-main-gateway-storage-web-1    |       chunks: 1,
+sandbox-microservices-example-main-gateway-storage-web-1    |       version: 1,
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:48.332Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:48.332Z","data":{"id":2,"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","metadata":null,"owner_id":null,"extension":"mp4","type":"video/mp4","size":"318465","chunks":1,"version":1,"key":"1736263666801","path":"/storage/media/2/content","domain":"","url":"","status":"COMPLETED","created_at":"2025-01-07T15:27:46.805Z","updated_at":"2025-01-07T15:27:47.453Z","deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":5,"redelivered":false,"exchange":"STORAGE","routingKey":"event.MEDIA_FETCHED_BY_ID"},"properties":{"contentType":"application/json","headers":{},"type":"event.MEDIA_FETCHED_BY_ID"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-gateway-storage-web-1    |       key: '1736263666801',
+sandbox-microservices-example-main-gateway-storage-web-1    |       path: '/storage/media/2/content',
+sandbox-microservices-example-main-gateway-storage-web-1    |       domain: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       url: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       status: 'COMPLETED',
+sandbox-microservices-example-main-gateway-storage-web-1    |       created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       updated_at: '2025-01-07T15:27:47.453Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       deleted_at: null
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       fields: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       properties: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       content: <Buffer 7b 22 69 64 22 3a 32 2c 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 ... 308 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     ack: [Function: ack],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendMessage: [Function: bound sendMessage],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendRequest: [Function: bound sendRequest],
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishEvent: [Function: bound publishEvent]
+sandbox-microservices-example-main-gateway-storage-web-1    |   },
+sandbox-microservices-example-main-gateway-storage-web-1    |   options: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     queue: 'MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: { id: 2 },
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishOptions: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'request.MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentType: 'application/json'
+sandbox-microservices-example-main-gateway-storage-web-1    |     }
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:48.332Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '/storage/media/2/content',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'COMPLETED',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:47.453Z',
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 5,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'event.MEDIA_FETCHED_BY_ID'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'event.MEDIA_FETCHED_BY_ID',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f4b003e82df6daa422')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-gateway-storage-web-1    | sendRequest: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   queue: 'MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |   data: { id: 2 },
+sandbox-microservices-example-main-gateway-storage-web-1    |   publishOptions: { type: 'request.MEDIA_GET_BY_ID', contentType: 'application/json' }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Created temp queue f41313c0-cd0b-11ef-a333-ff3bb9c0823e for client.
+sandbox-microservices-example-main-gateway-storage-web-1    | now ready and watching temp queue
+sandbox-microservices-example-main-gateway-storage-web-1    | request/rpc sent; awaiting response... {
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationId: '7aca6853-ead8-4e5c-b0ac-63c42943b872',
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: 'q9auh614g16-1736263669515',
+sandbox-microservices-example-main-gateway-storage-web-1    |   temporaryRpcQueue: 'f41313c0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | sending request
+sandbox-microservices-example-main-microservices-storage-1  | Executing (default): SELECT "id", "uuid", "metadata", "owner_id", "extension", "type", "size", "chunks", "version", "key", "path", "domain", "url", "status", "created_at", "updated_at", "deleted_at" FROM "MediaObjects" AS "MediaObjects" WHERE ("MediaObjects"."deleted_at" IS NULL AND "MediaObjects"."id" = 2);
+sandbox-microservices-example-main-microservices-storage-1  | is ready to publish event
+sandbox-microservices-example-main-microservices-storage-1  | Sending reply ---
+sandbox-microservices-example-main-microservices-storage-1  | is ready to send message
+sandbox-microservices-example-main-microservices-storage-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-gateway-storage-web-1    | 
+sandbox-microservices-example-main-gateway-storage-web-1    | Received reply.
+sandbox-microservices-example-main-gateway-storage-web-1    |  {
+sandbox-microservices-example-main-gateway-storage-web-1    |   message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     fields: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       consumerTag: 'q9auh614g16-1736263669515',
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryTag: 3,
+sandbox-microservices-example-main-gateway-storage-web-1    |       redelivered: false,
+sandbox-microservices-example-main-gateway-storage-web-1    |       exchange: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       routingKey: 'f41313c0-cd0b-11ef-a333-ff3bb9c0823e'
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     properties: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentType: 'application/json',
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentEncoding: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       headers: {},
+sandbox-microservices-example-main-gateway-storage-web-1    |       deliveryMode: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       priority: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       correlationId: '7aca6853-ead8-4e5c-b0ac-63c42943b872',
+sandbox-microservices-example-main-gateway-storage-web-1    |       replyTo: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       expiration: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       messageId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       timestamp: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'event.MEDIA_FETCHED_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |       userId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       appId: undefined,
+sandbox-microservices-example-main-gateway-storage-web-1    |       clusterId: undefined
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     content: <Buffer 7b 22 69 64 22 3a 32 2c 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 ... 308 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | {
+sandbox-microservices-example-main-gateway-storage-web-1    |   isReplyToRequest: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   consumerTag: 'q9auh614g16-1736263669515',
+sandbox-microservices-example-main-gateway-storage-web-1    |   correlationIdMatch: true,
+sandbox-microservices-example-main-gateway-storage-web-1    |   requestCorrelationId: '7aca6853-ead8-4e5c-b0ac-63c42943b872',
+sandbox-microservices-example-main-gateway-storage-web-1    |   responseCorrelationId: '7aca6853-ead8-4e5c-b0ac-63c42943b872'
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-microservices-logging-1  | 2025-01-07T15:27:49.531Z [EVENT] info: Log Event - {"timestamp":"2025-01-07T15:27:49.531Z","data":{"id":2,"uuid":"f2778c30-cd0b-11ef-8bd5-d790b3e075cb","metadata":null,"owner_id":null,"extension":"mp4","type":"video/mp4","size":"318465","chunks":1,"version":1,"key":"1736263666801","path":"/storage/media/2/content","domain":"","url":"","status":"COMPLETED","created_at":"2025-01-07T15:27:46.805Z","updated_at":"2025-01-07T15:27:47.453Z","deleted_at":null},"rmqMessage":{"fields":{"consumerTag":"amq.ctag-QhTQVZb8UFq29eugDKMWpg","deliveryTag":6,"redelivered":false,"exchange":"STORAGE","routingKey":"event.MEDIA_FETCHED_BY_ID"},"properties":{"contentType":"application/json","headers":{},"type":"event.MEDIA_FETCHED_BY_ID"}},"level":"\u001b[37minfo\u001b[39m","message":"Log Event","label":"EVENT"}
+sandbox-microservices-example-main-gateway-storage-web-1    | received response from request/rpc: {
+sandbox-microservices-example-main-gateway-storage-web-1    |   start_time: 1736263669515,
+sandbox-microservices-example-main-gateway-storage-web-1    |   end_time: 1736263669532,
+sandbox-microservices-example-main-gateway-storage-web-1    |   total_time: 0.017,
+sandbox-microservices-example-main-gateway-storage-web-1    |   time_in_seconds: '0',
+sandbox-microservices-example-main-gateway-storage-web-1    |   messageObj: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       id: 2,
+sandbox-microservices-example-main-gateway-storage-web-1    |       uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-gateway-storage-web-1    |       metadata: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       owner_id: null,
+sandbox-microservices-example-main-gateway-storage-web-1    |       extension: 'mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'video/mp4',
+sandbox-microservices-example-main-gateway-storage-web-1    |       size: '318465',
+sandbox-microservices-example-main-gateway-storage-web-1    |       chunks: 1,
+sandbox-microservices-example-main-gateway-storage-web-1    |       version: 1,
+sandbox-microservices-example-main-gateway-storage-web-1    |       key: '1736263666801',
+sandbox-microservices-example-main-gateway-storage-web-1    |       path: '/storage/media/2/content',
+sandbox-microservices-example-main-gateway-storage-web-1    |       domain: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       url: '',
+sandbox-microservices-example-main-gateway-storage-web-1    |       status: 'COMPLETED',
+sandbox-microservices-example-main-gateway-storage-web-1    |       created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       updated_at: '2025-01-07T15:27:47.453Z',
+sandbox-microservices-example-main-gateway-storage-web-1    |       deleted_at: null
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     message: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       fields: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       properties: [Object],
+sandbox-microservices-example-main-gateway-storage-web-1    |       content: <Buffer 7b 22 69 64 22 3a 32 2c 22 75 75 69 64 22 3a 22 66 32 37 37 38 63 33 30 2d 63 64 30 62 2d 31 31 65 66 2d 38 62 64 35 2d 64 37 39 30 62 33 65 30 37 35 ... 308 more bytes>
+sandbox-microservices-example-main-gateway-storage-web-1    |     },
+sandbox-microservices-example-main-gateway-storage-web-1    |     ack: [Function: ack],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendMessage: [Function: bound sendMessage],
+sandbox-microservices-example-main-gateway-storage-web-1    |     sendRequest: [Function: bound sendRequest],
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishEvent: [Function: bound publishEvent]
+sandbox-microservices-example-main-gateway-storage-web-1    |   },
+sandbox-microservices-example-main-gateway-storage-web-1    |   options: {
+sandbox-microservices-example-main-gateway-storage-web-1    |     queue: 'MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |     data: { id: 2 },
+sandbox-microservices-example-main-gateway-storage-web-1    |     publishOptions: {
+sandbox-microservices-example-main-gateway-storage-web-1    |       type: 'request.MEDIA_GET_BY_ID',
+sandbox-microservices-example-main-gateway-storage-web-1    |       contentType: 'application/json'
+sandbox-microservices-example-main-gateway-storage-web-1    |     }
+sandbox-microservices-example-main-gateway-storage-web-1    |   }
+sandbox-microservices-example-main-gateway-storage-web-1    | }
+sandbox-microservices-example-main-gateway-storage-web-1    | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Acknoledged rmq message.
+sandbox-microservices-example-main-microservices-logging-1  | Successfully logged event into MongoDB {
+sandbox-microservices-example-main-microservices-logging-1  |   timestamp: '2025-01-07T15:27:49.531Z',
+sandbox-microservices-example-main-microservices-logging-1  |   data: {
+sandbox-microservices-example-main-microservices-logging-1  |     id: 2,
+sandbox-microservices-example-main-microservices-logging-1  |     uuid: 'f2778c30-cd0b-11ef-8bd5-d790b3e075cb',
+sandbox-microservices-example-main-microservices-logging-1  |     metadata: null,
+sandbox-microservices-example-main-microservices-logging-1  |     owner_id: null,
+sandbox-microservices-example-main-microservices-logging-1  |     extension: 'mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     type: 'video/mp4',
+sandbox-microservices-example-main-microservices-logging-1  |     size: '318465',
+sandbox-microservices-example-main-microservices-logging-1  |     chunks: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     version: 1,
+sandbox-microservices-example-main-microservices-logging-1  |     key: '1736263666801',
+sandbox-microservices-example-main-microservices-logging-1  |     path: '/storage/media/2/content',
+sandbox-microservices-example-main-microservices-logging-1  |     domain: '',
+sandbox-microservices-example-main-microservices-logging-1  |     url: '',
+sandbox-microservices-example-main-microservices-logging-1  |     status: 'COMPLETED',
+sandbox-microservices-example-main-microservices-logging-1  |     created_at: '2025-01-07T15:27:46.805Z',
+sandbox-microservices-example-main-microservices-logging-1  |     updated_at: '2025-01-07T15:27:47.453Z',
+sandbox-microservices-example-main-microservices-logging-1  |     deleted_at: null
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   rmqMessage: {
+sandbox-microservices-example-main-microservices-logging-1  |     fields: {
+sandbox-microservices-example-main-microservices-logging-1  |       consumerTag: 'amq.ctag-QhTQVZb8UFq29eugDKMWpg',
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryTag: 6,
+sandbox-microservices-example-main-microservices-logging-1  |       redelivered: false,
+sandbox-microservices-example-main-microservices-logging-1  |       exchange: 'STORAGE',
+sandbox-microservices-example-main-microservices-logging-1  |       routingKey: 'event.MEDIA_FETCHED_BY_ID'
+sandbox-microservices-example-main-microservices-logging-1  |     },
+sandbox-microservices-example-main-microservices-logging-1  |     properties: {
+sandbox-microservices-example-main-microservices-logging-1  |       contentType: 'application/json',
+sandbox-microservices-example-main-microservices-logging-1  |       contentEncoding: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       headers: {},
+sandbox-microservices-example-main-microservices-logging-1  |       deliveryMode: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       priority: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       correlationId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       replyTo: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       expiration: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       messageId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       timestamp: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       type: 'event.MEDIA_FETCHED_BY_ID',
+sandbox-microservices-example-main-microservices-logging-1  |       userId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       appId: undefined,
+sandbox-microservices-example-main-microservices-logging-1  |       clusterId: undefined
+sandbox-microservices-example-main-microservices-logging-1  |     }
+sandbox-microservices-example-main-microservices-logging-1  |   },
+sandbox-microservices-example-main-microservices-logging-1  |   _id: new ObjectId('677d47f5b003e82df6daa423')
+sandbox-microservices-example-main-microservices-logging-1  | }
+sandbox-microservices-example-main-logging-db-1             | {"t":{"$date":"2025-01-07T15:28:17.203+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1736263697,"ts_usec":203710,"thread":"1:0x7fb47351c6c0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 12, snapshot max: 12 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 6886"}}}

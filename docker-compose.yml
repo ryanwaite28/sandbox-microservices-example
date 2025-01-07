@@ -46,21 +46,21 @@ volumes:
 services:
 
   # Logging / Analytics
-  splunk:
-    networks:
-      splunknet:
-        aliases:
-          - so1
-    image: splunk/splunk
-    environment:
-      - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_PASSWORD=Admin123
-      - DEBUG=true
-    ports:
-      - '8000:8000'
-    volumes:
-      - logging-ms-vol:/var/log
-      - splunk-config-vol:/opt/splunk/etc
+  # splunk:
+  #   networks:
+  #     splunknet:
+  #       aliases:
+  #         - so1
+  #   image: splunk/splunk
+  #   environment:
+  #     - SPLUNK_START_ARGS=--accept-license
+  #     - SPLUNK_PASSWORD=Admin123
+  #     - DEBUG=true
+  #   ports:
+  #     - '8000:8000'
+  #   volumes:
+  #     - logging-ms-vol:/var/log
+  #     - splunk-config-vol:/opt/splunk/etc
 
 
 
@@ -130,7 +130,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
-      - '27018:27017'
+      - '27017:27017'
     volumes: 
       - logging-db:/data/db
 
@@ -144,7 +144,7 @@ services:
       args:
         APP_NAME: gateway-storage-web
         SHARED_STORAGE_VOL_PATH: /app/shared-files
-    command: npm run nx serve gateway-storage-web
+    command: npm run nx serve --skip-nx-cache --verbose gateway-storage-web
     deploy:
       replicas: 1
     environment:
@@ -176,7 +176,7 @@ services:
       args:
         APP_NAME: gateway-api-web
         SHARED_STORAGE_VOL_PATH: ''
-    command: npm run nx serve gateway-api-web
+    command: npm run nx serve --skip-nx-cache --verbose gateway-api-web
     deploy:
       replicas: 1
     environment:
@@ -207,7 +207,7 @@ services:
       args:
         APP_NAME: microservice-storage
         SHARED_STORAGE_VOL_PATH: /app/shared-files
-    command: npm run nx serve microservice-storage
+    command: npm run nx serve --skip-nx-cache --verbose microservice-storage
     deploy:
       replicas: 3
     environment:
@@ -239,7 +239,7 @@ services:
         SHARED_STORAGE_VOL_PATH: /app/logs
     deploy:
       replicas: 2
-    command: npm run nx serve microservice-logging
+    command: npm run nx serve --skip-nx-cache --verbose microservice-logging
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: MICROSERVICE_LOGGING
@@ -249,9 +249,10 @@ services:
       JWT_SECRET: "0123456789-abcdefghijklmnopqrstuvwxyz"
 
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
-      DATABASE_URL: mongodb://root:example@mongo:27017
+      DATABASE_URL: mongodb://root:example@logging-db:27017
     depends_on:
       - rabbitmq
+      - logging-db
     volumes:
       - /app/node_modules
       - logging-ms-vol:/app/logs
@@ -265,7 +266,7 @@ services:
         APP_NAME: microservice-users
     deploy:
       replicas: 2
-    command: npm run nx serve microservice-users
+    command: npm run nx serve --skip-nx-cache --verbose microservice-users
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: MICROSERVICE_USERS
@@ -291,7 +292,7 @@ services:
         APP_NAME: microservice-blog
     deploy:
       replicas: 2
-    command: npm run nx serve microservice-blog
+    command: npm run nx serve --skip-nx-cache --verbose microservice-blog
     environment:
       APP_ENV: LOCAL
       APP_MACHINE_NAME: MICROSERVICE_USERS
